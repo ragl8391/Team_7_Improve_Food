@@ -21,11 +21,6 @@ Restaurants regularly discard food that is perfectly good but unsellable at full
 
 Consumers are provided the opportunity to purchase high-quality food from local restaurants at a discounted price. Existing apps in the same (TooGoodToGo, Flashfood, Perishable Foods, etc.) are pick-up only. This model excludes people without access to transportation, mobility constraints, and those short on time. Adding delivery removes that friction and expands discounted food purchases to people who can actually benefit. 
 
-## Scope
-1. Restaurant posts surplus food - A restaurant-facing interface where a restaurant can log in, create a listing with item name, quantity, price, and pickup window, and publish it.
-2. Customer views available items nearby - A consumer-facing interface where a customer can log in, see active listings within a defined radius of their location, and browse item details.
-3. Customer reserves and item - A customer can claim a listing (or a quantity from it), which marks the item as reserved and confirms it to the restaurant.
-
 ## Risks to project completion, possibly including:
 Creating a feasible business model by balancing reduced profits and delivery costs for restaurants. 
 Project complexity is a potential risk as it will require a two-sided marketplace app (consumer + restaurant + delivery logistics). For this project, we need to sync inventory in real time, route items for delivery efficiently, process payment, and organize notifications. 
@@ -47,12 +42,15 @@ The time risk may be mitigated by setting internal milestones and visibly tracki
 Scrum with Shared/Rotating Scrum Master: allowing the group to agree on a different Scrum Master for each meeting in order to keep everyone engaged and also to maintain flexibility with people’s schedules (some people may have time one week but not the next).
 
 ## Development Steps
-1. Define user stories for the three workflow stages
-2. Build restaurant-facing interface (login, create listing, view posted listings)
-3. Build consumer-facing interface (login, view nearby listings, view item detail)
-4. Build reservation functionality (claim item, updated avaialbility, confirm to restaurant)
-5. Connect frontend to backend
-6. Test end-to-end workflow and refine 
+Define user stories 
+Develop consumer-facing interface 
+Develop restaurant-facing interface
+Develop backend software for loading user information, setting location, etc.
+Develop backend software for loading restaurant information, food availability, etc.
+Develop backend software for loading local restaurants within certain radius
+Build pick-up/delivery timing algorithm
+Integrate frontend and backend functions
+Test and refine
 
 ## Project Tracking Software link (Trello is most common)
 Trello - https://app.clickup.com/90141346834/v/l/2kydfk0j-354
