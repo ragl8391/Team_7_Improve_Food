@@ -2,8 +2,8 @@
 ## Project Milestone 3: Weekly Status Report
 **Project:** Improve Food \
 **Team Number:** 7 \
-**Team Name:** Team Improve Food
-
+**Team Name:** Team Improve Food \
+**Link to Repository**: https://github.com/ragl8391/Team_7_Improve_Food
 ---
 
 ## Reporting Period
