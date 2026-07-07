@@ -23,7 +23,7 @@ This document is designed to track the **weekly status** of the Improve Food pro
 The team is using a shared **ClickUp** to manage tasks and sprint progress.
 At the time of this report:
 - Continuous communication is being maintained through Discord
-- All Miletsones have been added to Clickup
+- All Milestones have been added to Clickup
 - General tasks have been delegated to the team, with Lauren and Rachael focusing on frontend work while Elysha and Marshal focus on backend work.
 
 <img width="928" height="588" alt="ClickUp" src="https://github.com/user-attachments/assets/957ef0b8-adce-45f6-8f03-bc8f55662244" />
@@ -67,7 +67,7 @@ Last week the team received feedback from the Project Proposal. We discussed mod
 ### Mitigation:
 - Blocking larger tasks into smaller tasks
 ### Identified Risk:
-- Learning new curve on code
+- Learning curve on code
 ### Mitigation:
 - Using external resources eg. W3Schools & Geek4Geeks
 
