@@ -23,6 +23,13 @@ def login():
         return redirect(url_for("marketplace"))
     return render_template("login.html")
 
+@app.route("/signup", methods=["GET", "POST"])
+def signup():
+    if request.method == "POST":
+        # Person 3/4 will wire up actual account creation in MongoDB here
+        return redirect(url_for("login"))
+    return render_template("signup.html")
+
 @app.route("/marketplace")
 def marketplace():
     # Placeholder: real query wire up 
