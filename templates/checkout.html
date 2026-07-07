@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Claim item - Improve Food{% endblock %}
+
+{% block content %}
+<div class="checkout-card">
+    <h1>{{ item.name }}</h1>
+    <p class="restaurant-name">{{ item.restaurant_name }}</p>
+
+    <h2>How would you like to receive it?</h2>
+    <div class="fulfillment-toggle">
+        <button type="button" id="pickup-btn" class="toggle-btn active" onclick="selectFulfillment('pickup')">Pickup</button>
+        <button type="button" id="delivery-btn" class="toggle-btn" onclick="selectFulfillment('delivery')">Delivery</button>
+    </div>
+
+    <form method="POST" action="{{ url_for('confirm_claim', item_id=item._id) }}" id="claim-form">
+        <input type="hidden" name="fulfillment_type" id="fulfillment_type" value="pickup">
+        <input type="hidden" name="address" id="address_hidden" value="">
+        <button type="submit" class="btn-primary">Confirm claim</button>
+    </form>
+</div>
+
+<!-- Delivery address pop-up (hidden by default) -->
+<div id="address-modal" class="modal-overlay hidden">
+    <div class="modal">
+        <h3>Delivery address</h3>
+        <label for="address-input">Where should we deliver this?</label>
+        <input type="text" id="address-input" placeholder="123 Main St, Denver, CO">
+        <div id="radius-message" class="radius-message hidden"></div>
+        <div class="modal-actions">
+            <button type="button" class="btn-secondary" onclick="closeAddressModal()">Cancel</button>
+            <button type="button" class="btn-primary" onclick="checkRadius()">Confirm address</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

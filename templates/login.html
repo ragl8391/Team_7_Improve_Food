@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Login - Improve Food{% endblock %}
+
+{% block content %}
+<div class="auth-card">
+    <h1>Welcome back</h1>
+    <form method="POST" action="{{ url_for('login') }}" class="auth-form">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit" class="btn-primary">Log in</button>
+    </form>
+    <p class="auth-alt">Don't have an account? <a href="#">Sign up</a></p>
+</div>
+{% endblock %}
