@@ -1,0 +1,135 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: -apple-system, sans-serif;
+    background: #f7f7f5;
+    color: #222;
+}
+
+.site-header {
+    padding: 16px 24px;
+    background: #fff;
+    border-bottom: 1px solid #e2e2e2;
+}
+.logo { font-weight: 600; font-size: 18px; color: #1d9e75; text-decoration: none; }
+
+.content { max-width: 720px; margin: 0 auto; padding: 32px 20px; }
+
+.auth-card, .checkout-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.auth-form { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.auth-form label { font-size: 13px; color: #555; margin-top: 8px; }
+.auth-form input {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+.auth-alt { margin-top: 16px; font-size: 14px; }
+
+.btn-primary {
+    background: #1d9e75;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 16px;
+}
+.btn-secondary {
+    background: #eee;
+    color: #333;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.feed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+.food-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.restaurant-name { color: #666; font-size: 14px; }
+.expires { color: #d85a30; font-size: 13px; margin-top: 4px; }
+
+.fulfillment-toggle { display: flex; gap: 8px; margin: 16px 0; }
+.toggle-btn {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid #ddd;
+    background: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.toggle-btn.active { border-color: #1d9e75; background: #e1f5ee; color: #0f6e56; }
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+.modal-overlay.hidden { display: none; }
+.modal {
+    background: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    width: 90%;
+    max-width: 400px;
+}
+.modal label { display: block; font-size: 13px; color: #555; margin: 12px 0 6px; }
+.modal input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+.modal-actions { display: flex; gap: 8px; margin-top: 20px; }
+.radius-message { margin-top: 10px; font-size: 14px; padding: 8px; border-radius: 6px; }
+.radius-message.hidden { display: none; }
+.radius-message.allowed { background: #eaf3de; color: #3b6d11; }
+.radius-message.blocked { background: #fcebeb; color: #a32d2d; }
+
+.landing-hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 48px 40px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.landing-text { max-width: 420px; }
+.landing-text h1 { font-size: 28px; margin-bottom: 12px; }
+.landing-text p { color: #555; line-height: 1.5; margin-bottom: 20px; }
+.landing-choice { display: flex; gap: 12px; }
+.landing-choice a {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin-top: 0;
+}
+.landing-art {
+    font-size: 120px;
+    color: #f2a623;
+}
