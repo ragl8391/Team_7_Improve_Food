@@ -39,7 +39,7 @@ The desintations of the page can be found from the frontend component of the rep
 ### Page Description
 This page is where restaurants can log the food that they have available to sell. They categorize their food by type and subtype, then add its name and description. Additionally, the price and quantity available for each food item can be added. The restaurant also inputs its restaurant name at the top of the form.
 
-#### For mockup, see Improve Food Web Design PDF: Restaurant - Add Food
+#### For mockup, see [Improve Food Web Design PDF: Restaurant - Add Food](Improve Food Web Design.pdf)
 
 ### Parameters needed for the page
 This page needs parameters such as HTML attributes, including the <a></a> tag to include a hyperlink that users can select to be guided to the Restaurant Location, Delivery/Pickup Options page, as well the <src ... alt=""> tag to include an image of more food on the page.
@@ -54,7 +54,7 @@ An HTML document will be needed in order to include the text and images, a CSS d
 #### Restaurant - Add Food Page
 *restaurant_add_food.html*
 
-#### Restaurant - Add Foof HTML Form
+#### Restaurant - Add Food HTML Form
 *restaurant_add_food_form.html*
 
 #### Restaurant - Add Location, Pickup/Delivery Options Page
@@ -75,14 +75,26 @@ An HTML document will be needed in order to include the text and images, a CSS d
 
 ## Page 3: Restaurant - Add Location, Pickup/Delivery Options
 ### Page Description
-
+This page is where the restaurant can input its location, and select if it would like to offer a delivery option. Additionally, the restaurant reports when it closes that day to help coordinate orders during open hours.
 
 #### For mockup, see Improve Food Web Design PDF
 
 ### Parameters needed for the page
+This page needs parameters such as HTML attributes, including the <iframe></iframe> tag which displays a map on the page with an address that the user inputs, as well an HTML form for the user to input information regarding restaurant location and closing time.
+
 ### Data needed to render the page
+An HTML document will be needed in order to include the text and map, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded regarding location, delivery options, and closing time.
+
 ### Link destinations for the page
+*restaurant_add_location.html*
+
 ### List of tests for verifying the rendering of the page
+- User can input address of restaurant (string)
+- User can select closing time that day (dropdown menu)
+- Map with user input address renders properly
+- User can select if they would like to offer delivery (dropdown menu)
+- User can submit their input information
+- All text and styling on the page renders as expected
 
 ## Page 4: Consumer - Choose Food
 
