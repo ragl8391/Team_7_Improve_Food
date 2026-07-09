@@ -124,10 +124,46 @@ Cart icon/link -> Cart/Checkout page
 ## Page 5: Consumer - Pickup/Delivery
 
 ### Page Description
+This page enables customers to checkout with their current order items and select pickup or delivery options. The page will display the order total and have a button for pickup or delivery. 
+
+If pickup is selected, the customer will be directed to a confirmation page that confirms the order items, item total, restuarant name, and restaurant location. A list of pickup times will be displayed, allowing the customer to select their desired pickup window. 
+
+If delivery is selected, the customer will be prompted to enter their address. A confirmation page will display with the order items, item total, restaurant name, and restaurant location. A list of possible delivery times will display and the customer will select their desired pickup window. 
 
 #### For mockup, see Improve Food Web Design PDF
 
 ### Parameters needed for the page
+This page needs parameters such as HTML attributes, including <button> elements for the user to select either "Pickup" or "Delivery." A <form> will be needed to collect the customer's address if "Delivery" is selected, with <input type="text"> fields for street address, city, state, and zip. A <select> (dropdown) or radio button group (<input type="radio">) will be needed to display and let the customer choose from the list of available pickup or delivery time windows. An <a href="..."> tag or <button> will be needed to allow the customer to proceed from the time-selection screen to order confirmation, and <a href="..."> tags will also be needed to link the restaurant name/location to that Restaurant's Location page.
+
 ### Data needed to render the page
+An HTML document will be needed to include the text and layout for the checkout, address form, and confirmation screens, and a CSS document will be needed to style the page. This page will need a connection to the cart data (order items and item total) carried over from the Choose Food page, as well as a connection to the restaurant database to pull restaurant name and location. A connection to a pickup/delivery time database or schedule (via Flask route/API) will be needed to populate the list of available time windows. JavaScript or server-side logic (e.g. Flask/Jinja) will be needed to conditionally render either the pickup flow or the delivery flow based on the customer's button selection, and to validate and store the delivery address if entered.
+
 ### Link destinations for the page
+Pickup button -> Pickup confirmation page
+
+Delivery button -> Delivery address entry form
+
+Address form submission -> Delivery confirmation page
+
+Confirm time selection -> Order confirmation/Receipt page 
+
 ### List of tests for verifying the rendering of the page
+- Page loads and correctly displays the current order items and item total
+
+- "Pickup" and "Deliery" buttons render and are clickable
+
+- Selecting "Pickup" correctly navigates to the pickup confirmation screen with order items, item total, restaurant name, and restuarant location
+
+- Selecting "Delivery" correctly displays the address input form
+
+- Address form validates required fields before proceeding
+
+- Delivery confirmation screen correctly displays order items, item total, restaurant name, and restaurant location after address is submitted
+
+- List of pickup times renders correctly and reflects actual avaliable windows
+
+- List of delivery times renders correct and reflects actual available windows
+
+- Customer selected time window is correctly recorded/passed to next step
+
+- Page displays an appropriate error/empty state if no pickup or delivery times are currently available 
