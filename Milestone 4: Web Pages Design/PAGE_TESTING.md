@@ -29,10 +29,10 @@ The desintations of the page can be found from the frontend component of the rep
 *<a href="consumer_choose_food.html"Consumer - Choose Food Page</ a>*
 
 ### List of tests for verifying the rendering of the page
-- Test that home page displays text and images
-- Test that page is formatting according to CSS styling preferences
-- Test that link to restaurant page is clickable and sends user to correct page
-- Test that link to consumer page is clickable and sends user to correct page
+- The home page displays text and images which render properly
+- The page is formatting according to CSS styling preferences
+- The link to restaurant page is clickable and sends user to correct page
+- The link to consumer page is clickable and sends user to correct page
 
 ## Page 2: Restaurant - Add Food
 
@@ -61,17 +61,17 @@ An HTML document will be needed in order to include the text and images, a CSS d
 *<a href="restaurant_add_location.html"Restaurant - Add Location Page</ a>*
 
 ### List of tests for verifying the rendering of the page
-- Test that all expected text and images appear on the page
-- Test that page is styled as expected
-- Test that restaurant name can be input (string)
-- Test that food category can be selected from set of options (drop-down menu)
-- Test that food subcategory can be selected from set of options (drop-down menu)
-- Test that food name can be added (string)
-- Test that food description can be added (string)
-- Test that food quantity can be added (integer)
-- Test that price can be added (float with two decimal places)
-- Test that form can be submitted
-- Test that hyperlink to Restaurant Location, Delivery/Pickup Options page sends user to correct web page
+- All expected text and images appear on the page and render properly
+- The page is styled as expected
+- User can input restaurant name (string)
+- Food category can be selected from set of options (drop-down menu)
+- Food subcategory can be selected from set of options (drop-down menu)
+- Food name can be input by user (string)
+- Food description can be input by user (string)
+- Food quantity can be input by user (integer)
+- Price can be input by user (float with two decimal places)
+- The form can be submitted
+- The hyperlink to Restaurant Location, Delivery/Pickup Options page sends user to correct web page
 
 ## Page 3: Restaurant - Add Location, Pickup/Delivery Options
 ### Page Description
