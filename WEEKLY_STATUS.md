@@ -142,9 +142,15 @@ At the time of this report:
 
 ## Individual Contributions
 ### Elysha:
+- Pushed `backend_api.py` to repository
 
 ### Lauren:
+- Completed Pages 4 and 5 of `PAGE_TESTING.md`
+- HTML and CSS documents created for consumer frontend
 
 ### Rachael:
+- Completed Pages 1, 2, and 3 of `PAGE_TESTING.md`
+- Created visualization of Web Page Design for 5 pages
 
 ### Marshal:
+- 
