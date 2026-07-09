@@ -94,8 +94,53 @@ Last week the team received feedback from the Project Proposal. We discussed mod
 ### Marshal:
 - Creating MongoDB
 
-
 ---
 
 ## Notes
 Most team meetings moving forward should be more consistently on Fridays at 4:30pm, with flexibility as needed.
+
+## Reporting Period
+**Week:** 8 \
+**Meeting Held:** Yes \
+**Meeting Date:** July 10, 4:30pm \
+**Meeting Duration:** 30 minutes \
+**Meeting Format:** Zoom
+
+## Project Management Snapshot
+The team is using a shared **ClickUp** to manage tasks and sprint progress.
+At the time of this report:
+-
+-
+-
+
+---
+
+## Progress Since Last Week
+
+### Overview
+
+### Key Accomplishments
+-
+-
+-
+
+## Risks and Mitigation
+
+### Identified Risk:
+
+### Mitigation:
+
+---
+
+## Team Reflection
+
+---
+
+## Individual Contributions
+### Elysha:
+
+### Lauren:
+
+### Rachael:
+
+### Marshal:
