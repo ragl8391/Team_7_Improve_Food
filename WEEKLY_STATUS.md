@@ -151,6 +151,7 @@ At the time of this report:
 ### Rachael:
 - Completed Pages 1, 2, and 3 of `PAGE_TESTING.md`
 - Created visualization of Web Page Design for 5 pages
+- Updated ClickUp
 
 ### Marshal:
 - 
