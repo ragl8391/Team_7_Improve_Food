@@ -107,7 +107,8 @@ Most team meetings moving forward should be more consistently on Fridays at 4:30
 **Meeting Format:** Zoom
 
 ## Project Management Snapshot
-<img width="817" height="429" alt="ClickUp" src="https://github.com/user-attachments/assets/2364e5f7-b806-4bf9-a7b5-9ebc6bda7dbb" />
+<img width="822" height="619" alt="ClickUp" src="https://github.com/user-attachments/assets/cd23a904-eeec-4e65-b4ea-61669878d934" />
+
 
 
 The team is using a shared **ClickUp** to manage tasks and sprint progress.
