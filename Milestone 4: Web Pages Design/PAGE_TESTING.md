@@ -46,12 +46,12 @@ This page is where restaurants can log the food that they have available to sell
 #### For mockup, see [Improve Food Web Design PDF: Restaurant - Add Food](<Improve Food Web Design.pdf>)
 
 ### Parameters needed for the page
-This page needs parameters such as HTML attributes, including the `<a>``</a>` tag to include a hyperlink that users can select to be guided to the Restaurant Location, Delivery/Pickup Options page, as well the `<img src="" ... alt="">` tag to include an image of more food on the page.
+This page needs parameters such as HTML attributes, including the `<a></a>` tag to include a hyperlink that users can select to be guided to the Restaurant Location, Delivery/Pickup Options page, as well the `<img src="" ... alt="">` tag to include an image of more food on the page.
 
 There will need to be an HTML form for the user to input information regarding food type, subtype, name, description, quantity, and price as well as the restaurant name. It is important to note that the data should be dynamically generated because food availablility will change based on what the consumer orders.
 
 ### Data needed to render the page
-An HTML document will be needed in order to include the text and images, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded. Since the food quantities decrease as consumers purchase them, this page will also need a connection to the food/product database (via Flask route/API) in order to pull current restaurant name, food item, and quantity for each item. Additionally, a some JavaScript may be needed in order to render the data into the page and to record which items a consumer has purchased, to remove them from the database for future purchases that day.
+An HTML document will be needed in order to include the text and images, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded. Since the food quantities decrease as consumers purchase them, this page will also need a connection to the food/product database (via Flask route/API) in order to pull current restaurant name, food item, and quantity for each item. Additionally, some JavaScript may be needed in order to render the data into the page and to record which items a consumer has purchased, to remove them from the database for future purchases that day.
 
 ### Link destinations for the page
 Clicking a submit button -> adds food to database
@@ -173,7 +173,7 @@ Confirm time selection -> Order confirmation/Receipt page
 ### List of tests for verifying the rendering of the page
 - Page loads and correctly displays the current order items and item total
 
-- "Pickup" and "Deliery" buttons render and are clickable
+- "Pickup" and "Delivery" buttons render and are clickable
 
 - Selecting "Pickup" correctly navigates to the pickup confirmation screen with order items, item total, restaurant name, and restuarant location
 
