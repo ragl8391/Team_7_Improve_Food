@@ -101,7 +101,7 @@ An HTML document will be needed in order to include the text and map, a CSS docu
 ### Page Description
 This page enables consumers to browse and select current food offerings. It will update available food based on restuarant input and display details including restaurant name, and food type, subtype, name, description, price, and quantity. Consumers can scroll through the current offerrings and select items to add to their cart. 
 
-#### For mockup, see Improve Food Web Design PDF
+#### For mockup, see [Improve Food Web Design PDF: Consumer - Choose Food](<Improve Food Web Design.pdf>)
 
 ### Parameters needed for the page
 
@@ -142,7 +142,7 @@ If pickup is selected, the customer will be directed to a confirmation page that
 
 If delivery is selected, the customer will be prompted to enter their address. A confirmation page will display with the order items, item total, restaurant name, and restaurant location. A list of possible delivery times will display and the customer will select their desired pickup window. 
 
-#### For mockup, see Improve Food Web Design PDF
+#### For mockup, see [Improve Food Web Design PDF: Consumer - Pickup/Delivery](<Improve Food Web Design.pdf>)
 
 ### Parameters needed for the page
 This page needs parameters such as HTML attributes, including `<button>` elements for the user to select either "Pickup" or "Delivery." A `<form>` will be needed to collect the customer's address if "Delivery" is selected, with `<input type="text">` fields for street address, city, state, and zip. A `<select>` (dropdown) or radio button group (`<input type="radio">`) will be needed to display and let the customer choose from the list of available pickup or delivery time windows. An `<a href="...">` tag or '`button>` will be needed to allow the customer to proceed from the time-selection screen to order confirmation, and `<a href="...">` tags will also be needed to link the restaurant name/location to that Restaurant's Location page.
