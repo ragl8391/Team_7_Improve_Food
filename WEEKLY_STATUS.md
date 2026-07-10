@@ -124,9 +124,22 @@ At the time of this report:
 ### Overview
 
 ### Key Accomplishments
+- Milestone 4 submitted!
+- 
 -
--
--
+
+---
+
+## Planned Tasks for Next Week
+- Elysha and Marshal will complete and submit Milestone 5, due July 16
+- Lauren and Rachael will continue to create and modify the html and css files for the frontend
+
+---
+
+## Blockers and Issues
+- Time constraints/management is the most common concern among all team members.
+
+---
 
 ## Risks and Mitigation
 
