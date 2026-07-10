@@ -14,7 +14,10 @@ This page needs parameters such as HTML attributes, including the `<a></a>` tag 
 An HTML document will be needed to include all of the test on the home page, as well as the hyperlinks and image. There should be a Cascading Style Sheet (CSS) which then styles the information text and hyperlinks, include font type and size, how text is centered, as well as the background color of the page.
 
 ### Link destinations for the page
-The desintations of the page can be found from the frontend component of the repository.
+The desintations of the pages will be found from the frontend component of the repository.
+
+Restaurant button/link -> Restaurant Add Food page
+Consumer button/link -> Consumer Choose Food page
 
 #### Landing Page HTML Document
 *landing.html*
@@ -115,7 +118,7 @@ An HTML document will be needed in order to include the text, images, and links,
 
 ### Link destinations for the page
 
-Clicking an item/select button -> adds item to cart (updates car data)
+Clicking an item/select button -> adds item to cart (updates cart data)
 
 Cart icon/link -> Cart/Checkout page
 
