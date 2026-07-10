@@ -89,9 +89,12 @@ This page is where the restaurant can input its location, and select if it would
 This page needs parameters such as HTML attributes, including the `<iframe></iframe>` tag which displays a map on the page with an address that the user inputs, as well an HTML form for the user to input information regarding restaurant location and closing time.
 
 ### Data needed to render the page
-An HTML document will be needed in order to include the text and map, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded regarding location, delivery options, and closing time.
+An HTML document will be needed in order to include the text and map, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded regarding location, delivery options, and closing time. This page will need a connection to the food data (the restaurant's food item and quantity) carried over from the Add Food page, as well as a connection to the consumer database to pull each consumer's name and location who has ordered from a restaurant. A connection to a pickup/delivery time database or schedule (via Flask route/API) will be needed to populate the list of available time windows to deliver to consumers or for consumers to pick up their items. JavaScript will be needed to conditionally render either the pickup flow or the delivery flow based on the restaurant's delivery preference and the customer's selection, as well as to validate and store the restaurant address entered.
 
 ### Link destinations for the page
+Submit button -> submits data regarding restaurant address, closing time, and delivery option
+Add more food button (optional) -> restaurant can select to go back to the Add Food page for additional items
+
 *restaurant_add_location.html*
 
 ### List of tests for verifying the rendering of the page
