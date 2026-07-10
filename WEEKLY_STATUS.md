@@ -167,4 +167,5 @@ At the time of this report:
 - Updated ClickUp
 
 ### Marshal:
-- 
+- Pushed 'backend_api.pu' to git
+- The Backend API and MongoDB are running successfully
