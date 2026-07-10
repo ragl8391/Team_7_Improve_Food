@@ -8,7 +8,7 @@ This is the home page for our website. It will provide a brief description of th
 #### For mockup, see [Improve Food Web Design PDF: Landing Page](<Improve Food Web Design.pdf>)
 
 ### Parameters needed for the page
-This page needs parameters such as HTML attributes, including the `<a></a>` tag to include hyperlinks that users can select to be guided to the consumer or restaurant page, as well the `<src ... alt="">` tag to include an image of food on the home page.
+This page needs parameters such as HTML attributes, including the `<a></a>` tag to include hyperlinks that users can select to be guided to the consumer or restaurant page, as well the `<img src="" ... alt="">` tag to include an image of food on the home page.
 
 ### Data needed to render the page
 An HTML document will be needed to include all of the test on the home page, as well as the hyperlinks and image. There should be a Cascading Style Sheet (CSS) which then styles the information text and hyperlinks, include font type and size, how text is centered, as well as the background color of the page.
@@ -46,9 +46,9 @@ This page is where restaurants can log the food that they have available to sell
 #### For mockup, see [Improve Food Web Design PDF: Restaurant - Add Food](<Improve Food Web Design.pdf>)
 
 ### Parameters needed for the page
-This page needs parameters such as HTML attributes, including the `<a>``</a>` tag to include a hyperlink that users can select to be guided to the Restaurant Location, Delivery/Pickup Options page, as well the `<src ... alt="">` tag to include an image of more food on the page.
+This page needs parameters such as HTML attributes, including the `<a>``</a>` tag to include a hyperlink that users can select to be guided to the Restaurant Location, Delivery/Pickup Options page, as well the `<img src="" ... alt="">` tag to include an image of more food on the page.
 
-There will need to be an HTML form for the user to input information regarding food type, subtype, name, description, quantity, and price as well as the restaurant name.
+There will need to be an HTML form for the user to input information regarding food type, subtype, name, description, quantity, and price as well as the restaurant name. It is important to note that the data should be dynamically generated because food availablility will change based on what the consumer orders.
 
 ### Data needed to render the page
 An HTML document will be needed in order to include the text and images, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded. Since the food quantities decrease as consumers purchase them, this page will also need a connection to the food/product database (via Flask route/API) in order to pull current restaurant name, food item, and quantity for each item. Additionally, a some JavaScript may be needed in order to render the data into the page and to record which items a consumer has purchased, to remove them from the database for future purchases that day.
