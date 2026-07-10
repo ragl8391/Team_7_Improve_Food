@@ -33,7 +33,7 @@ Consumer button/link -> Consumer Choose Food page
 
 ### List of tests for verifying the rendering of the page
 - The home page displays text and images which render properly
-- The page is formatting according to CSS styling preferences
+- The page is formatted according to CSS styling preferences
 - The link to restaurant page is clickable and sends user to correct page
 - The link to consumer page is clickable and sends user to correct page
 
@@ -50,9 +50,12 @@ This page needs parameters such as HTML attributes, including the `<a>``</a>` ta
 There will need to be an HTML form for the user to input information regarding food type, subtype, name, description, quantity, and price as well as the restaurant name.
 
 ### Data needed to render the page
-An HTML document will be needed in order to include the text and images, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded.
+An HTML document will be needed in order to include the text and images, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded. Since the food quantities decrease as consumers purchase them, this page will also need a connection to the food/product database (via Flask route/API) in order to pull current restaurant name, food item, and quantity for each item. Additionally, a some JavaScript may be needed in order to render the data into the page and to record which items a consumer has purchased, to remove them from the database for future purchases that day.
 
 ### Link destinations for the page
+Clicking a submit button -> adds food to database
+
+Location button/link -> sends user to restaurant location page
 
 #### Restaurant - Add Food Page
 *restaurant_add_food.html*
