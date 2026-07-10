@@ -113,9 +113,8 @@ Most team meetings moving forward should be more consistently on Fridays at 4:30
 
 The team is using a shared **ClickUp** to manage tasks and sprint progress.
 At the time of this report:
--
--
--
+- Milestone 4 is complete
+- Initial setup of html, Flask, and MongoDB
 
 ---
 
@@ -125,8 +124,8 @@ At the time of this report:
 
 ### Key Accomplishments
 - Milestone 4 submitted!
-- 
--
+- Backend files added to repository
+- Frontend files added to repository
 
 ---
 
@@ -137,25 +136,45 @@ At the time of this report:
 ---
 
 ## Blockers and Issues
-- Time constraints/management is the most common concern among all team members.
+- Synthesizing frontend and backend cohesively is a concern
 
 ---
 
 ## Risks and Mitigation
 
 ### Identified Risk:
+Working with <iframe> maps.
 
 ### Mitigation:
+Research and experimentation with maps in HTML
+
+### Identified Risk:
+Coordination of tasks in limited timeline
+
+### Mitigation:
+Troubleshooting, trial and error
+
+### Identified Risk:
+Integration with everyone's code, having frontend and backend cooperate correctly
+
+### Mitigation
+Elysha's focus is collaborating with the frontend side of the team
+
+Branching and them merging into main on GitHub allows for everyone to work on their own parts of the project but then share it with the team.
 
 ---
 
 ## Team Reflection
+Overall the team feels like the project is running smoothly, and that the risks identified are manageable.
 
 ---
 
 ## Individual Contributions
 ### Elysha:
 - Pushed `backend_api.py` to repository
+- Established a dedicated development branch
+- Resolved some environment authentication issues
+- Created roots for reading pickup and deliver, pulling information from MongoDB
 
 ### Lauren:
 - Completed Pages 4 and 5 of `PAGE_TESTING.md`
