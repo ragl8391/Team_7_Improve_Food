@@ -17,6 +17,7 @@ An HTML document will be needed to include all of the test on the home page, as 
 The desintations of the pages will be found from the frontend component of the repository.
 
 Restaurant button/link -> Restaurant Add Food page
+
 Consumer button/link -> Consumer Choose Food page
 
 #### Landing Page HTML Document
@@ -93,6 +94,7 @@ An HTML document will be needed in order to include the text and map, a CSS docu
 
 ### Link destinations for the page
 Submit button -> submits data regarding restaurant address, closing time, and delivery option
+
 Add more food button (optional) -> restaurant can select to go back to the Add Food page for additional items
 
 *restaurant_add_location.html*
