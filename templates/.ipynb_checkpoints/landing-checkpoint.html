@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Welcome - Improve Food{% endblock %}
+
+{% block content %}
+<div class="landing-hero">
+    <div class="landing-text">
+        <h1>Welcome to Improve Food!</h1>
+        <p>Reduce food waste and save money by purchasing end-of-day food items from local restaurants at a discounted price. Delivery options available!</p>
+        
+        <div class="landing-choice">
+            <a href="{{ url_for('login') }}" class="btn-primary">Consumer Login</a>
+            <a href="#" class="btn-secondary">Restaurant Login</a>
+        </div>
+    </div>    
+    <div class="landing-art">
+        <i class="ti ti-tools-kitchen-2"></i>
+    </div>
+</div>
+{% endblock %}
