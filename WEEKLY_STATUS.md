@@ -188,3 +188,84 @@ Overall the team feels like the project is running smoothly, and that the risks 
 ### Marshal:
 - Pushed 'backend_api.pu' to git
 - The Backend API and MongoDB are running successfully
+
+- ## Reporting Period
+**Week:** 9 \
+**Meeting Held:** Yes \
+**Meeting Date:** July 17, 4:30pm \
+**Meeting Duration:** 30 minutes \
+**Meeting Format:** Zoom
+
+## Project Management Snapshot
+<img width="947" height="470" alt="WeeklyProgress" src="https://github.com/user-attachments/assets/a5c955cb-efa4-4545-8dd9-308c844f900f" />
+
+
+
+
+The team is using a shared **ClickUp** to manage tasks and sprint progress.
+At the time of this report:
+- 
+
+---
+
+## Progress Since Last Week
+
+### Overview
+
+### Key Accomplishments
+-
+
+---
+
+## Planned Tasks for Next Week
+-
+
+
+---
+
+## Blockers and Issues
+
+
+---
+
+## Risks and Mitigation
+
+### Identified Risk:
+
+
+### Mitigation:
+
+
+### Identified Risk:
+
+
+### Mitigation:
+
+
+### Identified Risk:
+
+
+### Mitigation
+
+
+---
+
+## Team Reflection
+
+
+---
+
+## Individual Contributions
+### Elysha:
+- 
+
+### Lauren:
+- 
+
+### Rachael:
+- Updated Clickup and planned upcoming assignments
+- Scheduled individual interview
+- Created HTML file for restaurant's add food page
+
+### Marshal:
+- 
