@@ -16,20 +16,6 @@ db = client["improve_food"]
 def index():
     return render_template("landing.html")
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        # Placeholder: actual auth with MongoDB 
-        return redirect(url_for("marketplace"))
-    return render_template("login.html")
-
-@app.route("/signup", methods=["GET", "POST"])
-def signup():
-    if request.method == "POST":
-        # Person 3/4 will wire up actual account creation in MongoDB here
-        return redirect(url_for("login"))
-    return render_template("signup.html")
-
 @app.route("/marketplace")
 def marketplace():
     # Placeholder: real query wire up 
