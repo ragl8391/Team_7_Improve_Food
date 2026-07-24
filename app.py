@@ -1,34 +1,41 @@
 import os
-from flask import Flask, render_template, redirect, url_for, request, jsonify
+from flask import Flask, render_template, redirect, url_for, request, jsonify, session
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from werkzeug.middleware.proxy_fix import ProxyFix
 
-
 load_dotenv()
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_prefix=1)
-app.secret_key = os.getenv("SECRET_KEY", "dev-secret-change-me") # to track user session
+app.secret_key = os.getenv("SECRET_KEY", "dev-secret-change-me")  # to track user session
+
 client = MongoClient(os.getenv("MONGO_URI"))
 db = client["improve_food"]
+
 
 @app.route("/")
 def index():
     return render_template("landing.html")
 
+
 @app.route("/marketplace")
 def marketplace():
-    # Placeholder: real query wire up 
+    # Placeholder: real query wire up
     food_items = []
     return render_template("marketplace.html", food_items=food_items)
+
+
+# ---------- CART LOGIC ----------
 
 def get_cart():
     """Cart is stored in session as: { item_id: quantity }"""
     return session.get("cart", {})
 
+
 def save_cart(cart):
     session["cart"] = cart
     session.modified = True
+
 
 @app.route("/cart/add/<item_id>", methods=["POST"])
 def add_to_cart(item_id):
@@ -37,12 +44,14 @@ def add_to_cart(item_id):
     save_cart(cart)
     return jsonify({"success": True, "cart_count": sum(cart.values())})
 
+
 @app.route("/cart/remove/<item_id>", methods=["POST"])
 def remove_from_cart(item_id):
     cart = get_cart()
     cart.pop(item_id, None)
     save_cart(cart)
     return jsonify({"success": True, "cart_count": sum(cart.values())})
+
 
 @app.route("/cart/update/<item_id>", methods=["POST"])
 def update_cart_quantity(item_id):
@@ -55,24 +64,31 @@ def update_cart_quantity(item_id):
     save_cart(cart)
     return jsonify({"success": True, "cart_count": sum(cart.values())})
 
+
 @app.route("/cart")
 def view_cart():
+    cart = get_cart()
+    # Placeholder: real query + total calculation
+    items = []
+    order_total = 0
+    return render_template("cart.html", items=items, order_total=order_total)
+
+
+# ---------- CHECKOUT ----------
+
+@app.route("/checkout")
+def checkout():
     cart = get_cart()
     if not cart:
         return redirect(url_for("marketplace"))
     # Placeholder: real query + total calculation
     items = []
     order_total = 0
-    return render_template("checkout.html", items=items, order_total=order_total))
+    return render_template("checkout.html", items=items, order_total=order_total)
 
-@app.route("/checkout")
-def checkout(item_id):
-    # Placeholder: real data connection
-    item = {"_id": item_id, "name": "Sample item", "restaurant_name": "Sample Restaurant"}
-    return render_template("checkout.html", item=item)
 
 @app.route("/checkout/confirm", methods=["POST"])
-def confirm_claim(item_id):
+def confirm_claim():
     fulfillment_type = request.form.get("fulfillment_type")
     address = request.form.get("address")
     selected_time = request.form.get("time_window")

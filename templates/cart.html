@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Your Cart - Improve Food{% endblock %}
+{% block content %}
+<div class="cart-page">
+    <h1>Your Cart</h1>
+
+    {% if items %}
+        <div class="cart-items">
+            {% for item in items %}
+            <div class="cart-item" data-item-id="{{ item._id }}">
+                <div class="cart-item-details">
+                    <h3>{{ item.name }}</h3>
+                    <p class="cart-item-restaurant">{{ item.restaurant_name }}</p>
+                    <p class="cart-item-price">${{ "%.2f"|format(item.price) }}</p>
+                </div>
+
+                <div class="cart-item-quantity">
+                    <form action="{{ url_for('update_cart_quantity', item_id=item._id) }}" method="post">
+                        <input type="number" name="quantity" value="{{ item.quantity }}" min="0">
+                        <button type="submit" class="btn-secondary">Update</button>
+                    </form>
+                </div>
+
+                <form action="{{ url_for('remove_from_cart', item_id=item._id) }}" method="post">
+                    <button type="submit" class="btn-remove">Remove</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="cart-summary">
+            <p class="cart-total">Order Total: ${{ "%.2f"|format(order_total) }}</p>
+            <a href="{{ url_for('checkout') }}" class="btn-primary">Proceed to Checkout</a>
+        </div>
+    {% else %}
+        <p class="cart-empty">Your cart is empty.</p>
+        <a href="{{ url_for('marketplace') }}" class="btn-primary">Browse Food</a>
+    {% endif %}
+</div>
+{% endblock %}
