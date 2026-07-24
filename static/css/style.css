@@ -133,3 +133,7 @@ body {
     font-size: 120px;
     color: #f2a623;
 }
+
+.cart-empty {
+    margin-bottom: 1-rem;
+}
