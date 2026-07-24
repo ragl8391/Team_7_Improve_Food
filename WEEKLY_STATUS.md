@@ -292,56 +292,65 @@ At the time of this report:
 ## Progress Since Last Week
 
 ### Overview
+Team continues to make progress on individual project responsibilities. Backend implementation is in the testing phase. Frontend implementation is in the final stages of styling and implementation. Plan to merge all changes into main branch and link frontend and backend components. 
 
 ### Key Accomplishments
--
+- Decided on final styling for customer and restaurant facing pages 
+- Planned individual branch merging into main branch
+- Planned frontend and backend connection for full app implementation
 
 ---
 
 ## Planned Tasks for Next Week
--
+- Continue working final project presentation slides
+- Backend testing
+- HTML styling for restuarant location page
+- Javascript implementation for restaurant pages
+- Meeting to review individual branch merging into main
+- Meeting to review frontend and backend integration
 
 
 ---
 
 ## Blockers and Issues
-
+- Linking frontend and backend
+- Making changes to shared css file
 
 ---
 
 ## Risks and Mitigation
 
 ### Identified Risk:
+ - Improper linkages may cause improper storage of restaurant inputs, incorrect displays to consumers, and/or failure to update when food items are changed.
+   
 
 
 ### Mitigation:
+- Team setup a separate meeting to link frontend and backend together with screen sharing to ensure all implemented changes are correct
 
 
 ### Identified Risk:
-
+Changes in the css file may be overriden by a single merge, unintentionally deletion another members work. 
 
 ### Mitigation:
-
-
-### Identified Risk:
-
-
-### Mitigation
-
+- Team setup a separate time to merge css file so changes can be reviewed together 
 
 ---
 
 ## Team Reflection
-
+Team feels organized and that all members are fairly contributing to progress. Looking forward to final implementation and app testing. 
 
 ---
 
 ## Individual Contributions
 ### Elysha:
-- 
+- MongoDB
+- Created slide template for final presentations 
 
 ### Lauren:
-- 
+- Updated cart logic to be based on customer session
+- Updated styling for customer frontend
+- Final customer frontend testing 
 
 ### Rachael:
 - Updated styling on restaurant add food page
