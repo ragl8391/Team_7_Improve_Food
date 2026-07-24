@@ -269,3 +269,83 @@ At the time of this report:
 
 ### Marshal:
 - 
+- ## Reporting Period
+**Week:** 10 \
+**Meeting Held:** Yes \
+**Meeting Date:** July 24, 4:30pm \
+**Meeting Duration:** 30 minutes \
+**Meeting Format:** Zoom
+
+## Project Management Snapshot
+<img width="1009" height="593" alt="Improve_Food" src="https://github.com/user-attachments/assets/d22842c4-d9f6-446c-86be-34b668341c4a" />
+
+
+
+
+
+The team is using a shared **ClickUp** to manage tasks and sprint progress.
+At the time of this report:
+- 
+
+---
+
+## Progress Since Last Week
+
+### Overview
+
+### Key Accomplishments
+-
+
+---
+
+## Planned Tasks for Next Week
+-
+
+
+---
+
+## Blockers and Issues
+
+
+---
+
+## Risks and Mitigation
+
+### Identified Risk:
+
+
+### Mitigation:
+
+
+### Identified Risk:
+
+
+### Mitigation:
+
+
+### Identified Risk:
+
+
+### Mitigation
+
+
+---
+
+## Team Reflection
+
+
+---
+
+## Individual Contributions
+### Elysha:
+- 
+
+### Lauren:
+- 
+
+### Rachael:
+- Updated styling on restaurant add food page
+- Planning HTML page for restaurant location
+
+### Marshal:
+- 
