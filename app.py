@@ -6,9 +6,9 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 
 
 load_dotenv()
-
 app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_prefix=1)
+app.secret_key = os.getenv("SECRET_KEY", "dev-secret-change-me") # to track user session
 client = MongoClient(os.getenv("MONGO_URI"))
 db = client["improve_food"]
 
@@ -22,22 +22,68 @@ def marketplace():
     food_items = []
     return render_template("marketplace.html", food_items=food_items)
 
-@app.route("/checkout/<item_id>")
+def get_cart():
+    """Cart is stored in session as: { item_id: quantity }"""
+    return session.get("cart", {})
+
+def save_cart(cart):
+    session["cart"] = cart
+    session.modified = True
+
+@app.route("/cart/add/<item_id>", methods=["POST"])
+def add_to_cart(item_id):
+    cart = get_cart()
+    cart[item_id] = cart.get(item_id, 0) + 1
+    save_cart(cart)
+    return jsonify({"success": True, "cart_count": sum(cart.values())})
+
+@app.route("/cart/remove/<item_id>", methods=["POST"])
+def remove_from_cart(item_id):
+    cart = get_cart()
+    cart.pop(item_id, None)
+    save_cart(cart)
+    return jsonify({"success": True, "cart_count": sum(cart.values())})
+
+@app.route("/cart/update/<item_id>", methods=["POST"])
+def update_cart_quantity(item_id):
+    quantity = int(request.form.get("quantity", 1))
+    cart = get_cart()
+    if quantity <= 0:
+        cart.pop(item_id, None)
+    else:
+        cart[item_id] = quantity
+    save_cart(cart)
+    return jsonify({"success": True, "cart_count": sum(cart.values())})
+
+@app.route("/cart")
+def view_cart():
+    cart = get_cart()
+    if not cart:
+        return redirect(url_for("marketplace"))
+    # Placeholder: real query + total calculation
+    items = []
+    order_total = 0
+    return render_template("checkout.html", items=items, order_total=order_total))
+
+@app.route("/checkout")
 def checkout(item_id):
     # Placeholder: real data connection
     item = {"_id": item_id, "name": "Sample item", "restaurant_name": "Sample Restaurant"}
     return render_template("checkout.html", item=item)
 
-@app.route("/checkout/<item_id>/confirm", methods=["POST"])
+@app.route("/checkout/confirm", methods=["POST"])
 def confirm_claim(item_id):
     fulfillment_type = request.form.get("fulfillment_type")
     address = request.form.get("address")
-    # Placeholder: saving the claim here
-    return f"Claimed {item_id} as {fulfillment_type}"
+    selected_time = request.form.get("time_window")
+    cart = get_cart()
+    # Placeholder: save the order to MongoDB here, using cart contents
+    save_cart({})  # clear cart after order is placed
+    return f"Order placed: {fulfillment_type}, time: {selected_time}"
+
 
 @app.route("/check-radius", methods=["POST"])
 def check_radius():
-    # Placeholder: real distance calculation
     data = request.get_json()
     return jsonify({"allowed": True})
 
