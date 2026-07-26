@@ -204,7 +204,8 @@ Overall the team feels like the project is running smoothly, and that the risks 
 
 The team is using a shared **ClickUp** to manage tasks and sprint progress.
 At the time of this report:
-- 
+- Milestone 5 (SQL) is submitted
+- Progress being made on frontend code
 
 ---
 
@@ -213,12 +214,14 @@ At the time of this report:
 ### Overview
 
 ### Key Accomplishments
--
+- Milestone 5 submitted!
 
 ---
 
 ## Planned Tasks for Next Week
--
+- Contiuous work on organizing backend
+- Frontend - continue with HTML, CSS, and Java files
+- Upcoming - Milestone 6 (individual interviews)
 
 
 ---
@@ -231,36 +234,24 @@ At the time of this report:
 ## Risks and Mitigation
 
 ### Identified Risk:
-
-
-### Mitigation:
-
-
-### Identified Risk:
-
+- Connecting frontend and backend work across multiple branches
 
 ### Mitigation:
-
-
-### Identified Risk:
-
-
-### Mitigation
-
+- Once files are mostly complete, team will coordinate a time to push to the main branch and resolve merge conflicts together
 
 ---
 
 ## Team Reflection
-
+Overall the team is happy with progress and communication.
 
 ---
 
 ## Individual Contributions
 ### Elysha:
-- 
+- Completed Milestone 5 and pushed to main branch
 
 ### Lauren:
-- 
+- Created HTML and CSS files for consumer frontend pages
 
 ### Rachael:
 - Updated Clickup and planned upcoming assignments
@@ -268,7 +259,8 @@ At the time of this report:
 - Created HTML file for restaurant's add food page
 
 ### Marshal:
-- 
+- Worked on backend MongoDB
+
 - ## Reporting Period
 **Week:** 10 \
 **Meeting Held:** Yes \
@@ -285,7 +277,7 @@ At the time of this report:
 
 The team is using a shared **ClickUp** to manage tasks and sprint progress.
 At the time of this report:
-- 
+- Team members have planned their Milestone 6 interviews
 
 ---
 
