@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Restaurant Location and Opt In/Out to Offer Delivery</title>
+      <!-- Link to CSS -->
+      <link rel="stylesheet" href="restaurant_style.css">
+  </head>
+ 
+<body>
+    <header class="site-header">
+        <a href="index.html" class="Logo">Food Rescue</a>
+    </header>
+    <main class="content">
+        <section class="auth-card">
+            <h1>Restaurants: Add Your Location Here</h1>
+
+
+            <form class="auth-form" action="/TODO-SUBMIT-HERE" method="POST">
+                <!-- Add restaurant's street address -->
+                <label for="restaurant_address">Restaurant Address</label>
+                <input id="restaurant_address" type="text" name="restaurant_address" placeholder="123 Example Street, Denver CO 80205" required>
+
+                <button id="verify-btn" class="btn-primary" type="button">Verify Address</button>
+
+                <!-- Add restaurant's city -->
+                <div id="map-display">
+                    <!-- Verified map to be displayed here -->
+                </div>
+
+        <!-- Opt in or out of delivery -->
+        <label for="category">Would you like to offer delivery within a 5-mile radius?</label>
+            <select name="category" id="category">
+                <option value="yes">YES, I would like to offer delivery!</option>
+                <option value="no">NO, I would not like to deliver at this time.</option>
+            </select>
+            <button class="btn-primary" type="submit">Submit Address and Delivery Option</button>
+        </form>
+<!-- Link to location page -->
+<a class="btn-secondary location-link" href="landing.html">Back to Home Page</a>
+
+<!-- TODO: Add fun image to right of form -->
+        </section>
+    </main>
+    <!-- Link to Javascript -->
+    <script src="restaurant.js"></script>
+  </body>
+</html>
