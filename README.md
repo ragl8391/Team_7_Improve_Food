@@ -55,7 +55,7 @@ Scrum with Shared/Rotating Scrum Master: allowing the group to agree on a differ
 6. Test end-to-end workflow and refine 
 
 ## Project Tracking Software link (Trello is most common)
-Trello - https://app.clickup.com/90141346834/v/l/2kydfk0j-354
+ClickUp - https://app.clickup.com/90141346834/v/l/2kydfk0j-354
 
 Github Repository
 https://github.com/ragl8391/Team_7_Improve_Food
