@@ -375,7 +375,7 @@ At the time of this report:
 ## Progress Since Last Week
 
 ### Overview
-
+The primary goal of this week's meeting was to organize files on the main branch and resolve merge conflicts. Additionally, details connecting the frontend to the API were discussed.
 
 ### Key Accomplishments
 - Drafts of frontend and backend files mostly completed
@@ -383,20 +383,22 @@ At the time of this report:
 ---
 
 ## Planned Tasks for Next Week
-- 
+- Milestone 7 due Thursday, August 6
+- Complete project slides
+- Record demo
 
 
 ---
 
 ## Blockers and Issues
-- 
+- There is a limited amount of time before Milestone 7, so coordinating across all team members' schedules will be important.
 
 ---
 
 ## Risks and Mitigation
 
 ### Identified Risk:
- - 
+ - Organizing frontend files in an easy to understand manner without causing pathing issues.
 
 
 ### Mitigation:
@@ -404,7 +406,7 @@ At the time of this report:
 
 
 ### Identified Risk:
-
+- Aligning the API with the frontend files
 
 ### Mitigation:
 - 
