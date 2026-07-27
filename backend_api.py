@@ -52,6 +52,60 @@ def home():
     except Exception as error:
         print("MongoDB error:", error)
         return f"MongoDB connection failed: {error}", 500
+
+# Returns one specific food item identified by its MongoDB ID.  
+@app.route("/api/items/<item_id>", methods=["GET"])
+def retrieve_item(item_id):
+    try:
+        mongo_item_id = ObjectId(item_id)
+    except Exception:
+        return jsonify(error="Invalid item ID."), 400
+
+    item = food_items_collection.find_one({
+        "_id": mongo_item_id
+    })
+
+    if item is None:
+        return jsonify(error="Item not found."), 404
+
+    return jsonify({
+        "id": str(item["_id"]),
+        "name": item.get("name"),
+        "quantity": item.get("quantity"),
+        "expiry": item.get("expiry"),
+        "status": item.get("status"),
+        "delivery_available": item.get(
+            "delivery_available",
+            True
+        )
+    }), 200
+
+
+# Returns all currently available food items from the MongoDB food_items collection.
+@app.route("/api/items", methods=["GET"])
+def retrieve_items():
+    try:
+        items = food_items_collection.find({"status": "available"})
+
+        results = []
+
+        for item in items:
+            results.append({
+                "id": str(item["_id"]),
+                "name": item.get("name"),
+                "quantity": item.get("quantity"),
+                "expiry": item.get("expiry"),
+                "status": item.get("status"),
+                "delivery_available": item.get(
+                    "delivery_available",
+                    True
+                )
+            })
+
+        return jsonify(results), 200
+
+    except Exception as error:
+        return jsonify(error=str(error)), 500
     
 @app.route('/add-item', methods=['POST'])
 def add_item():
