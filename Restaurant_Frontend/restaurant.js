@@ -1,4 +1,4 @@
-// Elements
+// Restaurant Location Elements
 const VerifyBtn = document.getElementById("verify-btn");
 const AddressInput = document.getElementById("restaurant_address");
 const MapDisplay = document.getElementById("map-display");
