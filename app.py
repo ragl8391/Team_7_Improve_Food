@@ -1,4 +1,5 @@
 import os
+import math
 from flask import Flask, render_template, redirect, url_for, request, jsonify, session
 from pymongo import MongoClient
 from dotenv import load_dotenv
@@ -98,10 +99,45 @@ def confirm_claim():
     return f"Order placed: {fulfillment_type}, time: {selected_time}"
 
 
+# ---------- CHECKOUT DELIVERY ----------
+
+
+# max radius for restuarat delivery
+DELIVERY_RADIU = 5
+
+def haversine_distance(lat1, lon1, lat2, lon2):
+    """Returns distance in miles between two lat/lon points."""
+    R = 3958.8  # Earth radius in miles
+    phi1, phi2 = math.radians(lat1), math.radians(lat2)
+    d_phi = math.radians(lat2 - lat1)
+    d_lambda = math.radians(lon2 - lon1)
+ 
+    a = math.sin(d_phi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(d_lambda / 2) ** 2
+    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+    return R * c
+
+
 @app.route("/check-radius", methods=["POST"])
 def check_radius():
     data = request.get_json()
-    return jsonify({"allowed": True})
+    item_id = data.get("item_id")
+    user_lat = data.get("user_lat")
+    user_lon = data.get("user_lon")
+ 
+    if not all([item_id, user_lat is not None, user_lon is not None]):
+        return jsonify({"error": "Missing required fields"}), 400
+ 
+    # Placeholder: look up the item's restaurant, then the restaurant's coordinates
+    # item = db.food_items.find_one({"_id": ObjectId(item_id)})
+    # restaurant = db.restaurants.find_one({"_id": item["restaurant_id"]})
+    # restaurant_lat = restaurant["latitude"]
+    # restaurant_lon = restaurant["longitude"]
+    restaurant_lat, restaurant_lon = 39.7392, -104.9903  # placeholder coords (Denver)
+ 
+    distance = haversine_distance(user_lat, user_lon, restaurant_lat, restaurant_lon)
+    allowed = distance <= DELIVERY_RADIUS_MILES
+ 
+    return jsonify({"allowed": allowed, "distance_miles": round(distance, 2)})
 
 
 if __name__ == "__main__":
