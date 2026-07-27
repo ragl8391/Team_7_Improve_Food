@@ -69,10 +69,11 @@ def retrieve_item(item_id):
         return jsonify(error="Item not found."), 404
 
     return jsonify({
-        "id": str(item["_id"]),
+        "_id": str(item["_id"]),
         "name": item.get("name"),
+        "restaurant_name": item.get("restaurant_name"),
         "quantity": item.get("quantity"),
-        "expiry": item.get("expiry"),
+        "expires_at": item.get("expires_at") or item.get("expiry"),
         "status": item.get("status"),
         "delivery_available": item.get(
             "delivery_available",
@@ -91,10 +92,11 @@ def retrieve_items():
 
         for item in items:
             results.append({
-                "id": str(item["_id"]),
+                "_id": str(item["_id"]),
                 "name": item.get("name"),
+                "restaurant_name": item.get("restaurant_name"),
                 "quantity": item.get("quantity"),
-                "expiry": item.get("expiry"),
+                "expires_at": item.get("expires_at") or item.get("expiry"),
                 "status": item.get("status"),
                 "delivery_available": item.get(
                     "delivery_available",
@@ -107,24 +109,40 @@ def retrieve_items():
     except Exception as error:
         return jsonify(error=str(error)), 500
     
-@app.route('/add-item', methods=['POST'])
+@app.route("/add-item", methods=["POST"])
 def add_item():
-    item_name = request.form.get('item_name')
-    quantity = request.form.get('quantity')
-    expiry = request.form.get('expiry')
+    item_name = request.form.get("item_name")
+    restaurant_name = request.form.get("restaurant_name")
+    quantity = request.form.get("quantity")
+    expires_at = (
+        request.form.get("expires_at")
+        or request.form.get("expiry")
+    )
+
+    if not item_name or not restaurant_name or not quantity or not expires_at:
+        return jsonify(
+            error=(
+                "item_name, restaurant_name, quantity, "
+                "and expires_at are required."
+            )
+        ), 400
+
     item_data = {
         "name": item_name,
+        "restaurant_name": restaurant_name,
         "quantity": quantity,
-        "expiry": expiry,
-        "status": "available", 
-        "message": "Item added successfully!"
+        "expires_at": expires_at,
+        "status": "available",
+        "delivery_available": True
     }
 
     result = food_items_collection.insert_one(item_data)
 
-    item_data["_id"] = str(result.inserted_id)
-
-    return jsonify(item_data), 201
+    return jsonify({
+        "_id": str(result.inserted_id),
+        **item_data,
+        "message": "Item added successfully!"
+    }), 201
 
 @app.route('/reserve-item', methods=['POST'])
 def reserve_item():
@@ -161,15 +179,15 @@ def reserve_item():
     
     # 2. Bundle into tuples (converting incoming strings to floats)
     # 2.5 Validate all coordinate boundaries first
-    if (not (-90 <= float(user_lat) <= 90) or 
-        not (-180 <= float(user_lon) <= 180) or 
-        not (-90 <= float(restaurant_lat) <= 90) or 
-        not (-180 <= float(restaurant_lon) <= 180)):
+    if (not (-90 <= user_lat <= 90) or 
+        not (-180 <= user_lon <= 180) or 
+        not (-90 <= restaurant_lat <= 90) or 
+        not (-180 <= restaurant_lon <= 180)):
         
         return jsonify(error="Invalid coordinates. Latitude must be between -90/90 and longitude between -180/180."), 400
 
-    user_coord = (float(user_lat), float(user_lon))
-    restaurant_coord = (float(restaurant_lat), float(restaurant_lon))
+    user_coord = (user_lat, user_lon)
+    restaurant_coord = (restaurant_lat, restaurant_lon)
 
     delivery_available = item.get("delivery_available", True)
 
