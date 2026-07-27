@@ -359,7 +359,8 @@ Team feels organized and that all members are fairly contributing to progress. L
 **Meeting Format:** Zoom
 
 ## Project Management Snapshot
-<img width="1009" height="593" alt="Improve_Food" src="https://github.com/user-attachments/assets/d22842c4-d9f6-446c-86be-34b668341c4a" />
+<img width="1092" height="528" alt="Week11" src="https://github.com/user-attachments/assets/9ec99c1f-398b-45eb-b172-e54670fc922f" />
+
 
 
 
