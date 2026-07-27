@@ -350,3 +350,81 @@ Team feels organized and that all members are fairly contributing to progress. L
 
 ### Marshal:
 - 
+
+- ## Reporting Period
+**Week:** 11 \
+**Meeting Held:** Yes \
+**Meeting Date:** July 27, 4:30pm \
+**Meeting Duration:** 30 minutes \
+**Meeting Format:** Zoom
+
+## Project Management Snapshot
+<img width="1009" height="593" alt="Improve_Food" src="https://github.com/user-attachments/assets/d22842c4-d9f6-446c-86be-34b668341c4a" />
+
+
+
+
+
+The team is using a shared **ClickUp** to manage tasks and sprint progress.
+At the time of this report:
+- Team members have drafted files to be organized in the main branch
+
+---
+
+## Progress Since Last Week
+
+### Overview
+
+
+### Key Accomplishments
+- Drafts of frontend and backend files mostly completed
+
+---
+
+## Planned Tasks for Next Week
+- 
+
+
+---
+
+## Blockers and Issues
+- 
+
+---
+
+## Risks and Mitigation
+
+### Identified Risk:
+ - 
+
+
+### Mitigation:
+- 
+
+
+### Identified Risk:
+
+
+### Mitigation:
+- 
+
+---
+
+## Team Reflection
+
+
+---
+
+## Individual Contributions
+### Elysha:
+- 
+
+### Lauren:
+- 
+
+### Rachael:
+- Created HTML page for adding restaurant location
+- Create Javascript file to display location fron Google Maps
+
+### Marshal:
+- 
