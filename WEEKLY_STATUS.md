@@ -426,6 +426,8 @@ At the time of this report:
 ### Rachael:
 - Created HTML page for adding restaurant location
 - Create Javascript file to display location fron Google Maps
+- Began slideshow for Milestone 7
+- Updated ClickUp
 
 ### Marshal:
 - 
