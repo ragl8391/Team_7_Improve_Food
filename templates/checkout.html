@@ -1,22 +1,42 @@
 {% extends "base.html" %}
 {% block title %}Checkout - Improve Food{% endblock %}
 {% block content %}
-<div class="checkout-page">
+<div class="checkout-card">
     <h1>Checkout</h1>
-
     <p class="order-total">Order Total: ${{ "%.2f"|format(order_total) }}</p>
 
-    <div class="fulfillment-choice">
-        <button type="button" id="pickup-btn" class="btn-secondary">Pickup</button>
-        <button type="button" id="delivery-btn" class="btn-secondary">Delivery</button>
+    <div class="fulfillment-toggle">
+        <button type="button" id="pickup-btn" class="toggle-btn active">Pickup</button>
+        <button type="button" id="delivery-btn" class="toggle-btn">Delivery</button>
     </div>
 
-    <!-- Shown only if user picks Delivery -->
+    <!-- Pickup flow -->
+    <div id="pickup-section">
+        <form action="{{ url_for('confirm_claim') }}" method="post" class="auth-form">
+            <input type="hidden" name="fulfillment_type" value="pickup">
+            <label for="pickup_time">Pickup Time</label>
+            <select id="pickup_time" name="time_window" required>
+                <option value="">Select a time window</option>
+                <!-- Placeholder: populate real available windows -->
+                <option value="5:00-5:30pm">5:00 - 5:30 PM</option>
+                <option value="5:30-6:00pm">5:30 - 6:00 PM</option>
+            </select>
+            <button type="submit" class="btn-primary">Confirm Order</button>
+        </form>
+    </div>
+
+    <!-- Delivery flow -->
     <div id="delivery-section" style="display:none;">
         <button type="button" id="use-location-btn" class="btn-primary">Use my current location</button>
-        <p id="location-status"></p>
+        <div id="radius-message" class="radius-message hidden"></div>
+    </div>
+</div>
 
-        <form id="checkout-form" action="{{ url_for('confirm_claim') }}" method="post" style="display:none;">
+<!-- Delivery address modal, shown only after radius check passes -->
+<div id="delivery-modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+        <h2>Delivery Details</h2>
+        <form id="checkout-form" action="{{ url_for('confirm_claim') }}" method="post">
             <input type="hidden" name="fulfillment_type" value="delivery">
             <input type="hidden" id="user_lat" name="user_lat">
             <input type="hidden" id="user_lon" name="user_lon">
@@ -27,52 +47,55 @@
             <label for="time_window">Delivery Time</label>
             <select id="time_window" name="time_window" required>
                 <option value="">Select a time window</option>
-                <!-- Placeholder: populate real available windows -->
                 <option value="5:00-5:30pm">5:00 - 5:30 PM</option>
                 <option value="5:30-6:00pm">5:30 - 6:00 PM</option>
             </select>
 
-            <button type="submit" class="btn-primary">Confirm Order</button>
-        </form>
-    </div>
-
-    <!-- Shown only if user picks Pickup -->
-    <div id="pickup-section" style="display:none;">
-        <form action="{{ url_for('confirm_claim') }}" method="post">
-            <input type="hidden" name="fulfillment_type" value="pickup">
-
-            <label for="pickup_time">Pickup Time</label>
-            <select id="pickup_time" name="time_window" required>
-                <option value="">Select a time window</option>
-                <option value="5:00-5:30pm">5:00 - 5:30 PM</option>
-                <option value="5:30-6:00pm">5:30 - 6:00 PM</option>
-            </select>
-
-            <button type="submit" class="btn-primary">Confirm Order</button>
+            <div class="modal-actions">
+                <button type="button" id="cancel-delivery-btn" class="btn-secondary">Cancel</button>
+                <button type="submit" class="btn-primary">Confirm Order</button>
+            </div>
         </form>
     </div>
 </div>
+{% endblock %}
 
+{% block scripts %}
 <script>
-document.getElementById("pickup-btn").addEventListener("click", () => {
-    document.getElementById("pickup-section").style.display = "block";
-    document.getElementById("delivery-section").style.display = "none";
+const pickupBtn = document.getElementById("pickup-btn");
+const deliveryBtn = document.getElementById("delivery-btn");
+const pickupSection = document.getElementById("pickup-section");
+const deliverySection = document.getElementById("delivery-section");
+const modalOverlay = document.getElementById("delivery-modal-overlay");
+const radiusMessage = document.getElementById("radius-message");
+
+pickupBtn.addEventListener("click", () => {
+    pickupBtn.classList.add("active");
+    deliveryBtn.classList.remove("active");
+    pickupSection.style.display = "block";
+    deliverySection.style.display = "none";
 });
 
-document.getElementById("delivery-btn").addEventListener("click", () => {
-    document.getElementById("delivery-section").style.display = "block";
-    document.getElementById("pickup-section").style.display = "none";
+deliveryBtn.addEventListener("click", () => {
+    deliveryBtn.classList.add("active");
+    pickupBtn.classList.remove("active");
+    deliverySection.style.display = "block";
+    pickupSection.style.display = "none";
+});
+
+document.getElementById("cancel-delivery-btn").addEventListener("click", () => {
+    modalOverlay.classList.add("hidden");
 });
 
 document.getElementById("use-location-btn").addEventListener("click", () => {
-    const statusEl = document.getElementById("location-status");
+    radiusMessage.classList.remove("hidden", "allowed", "blocked");
+    radiusMessage.textContent = "Requesting your location...";
 
     if (!navigator.geolocation) {
-        statusEl.textContent = "Geolocation is not supported by your browser.";
+        radiusMessage.textContent = "Geolocation is not supported by your browser.";
+        radiusMessage.classList.add("blocked");
         return;
     }
-
-    statusEl.textContent = "Requesting your location...";
 
     navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -95,21 +118,24 @@ document.getElementById("use-location-btn").addEventListener("click", () => {
             .then((res) => res.json())
             .then((data) => {
                 if (data.allowed) {
-                    statusEl.textContent = `You're within delivery range (${data.distance_miles} mi).`;
+                    radiusMessage.textContent = `You're within delivery range (${data.distance_miles} mi).`;
+                    radiusMessage.classList.add("allowed");
                     document.getElementById("user_lat").value = lat;
                     document.getElementById("user_lon").value = lon;
-                    document.getElementById("checkout-form").style.display = "block";
+                    modalOverlay.classList.remove("hidden");
                 } else {
-                    statusEl.textContent = `Sorry, you're outside our delivery range (${data.distance_miles} mi away).`;
-                    document.getElementById("checkout-form").style.display = "none";
+                    radiusMessage.textContent = `Sorry, you're outside our delivery range (${data.distance_miles} mi away).`;
+                    radiusMessage.classList.add("blocked");
                 }
             })
             .catch(() => {
-                statusEl.textContent = "Something went wrong checking delivery range. Please try again.";
+                radiusMessage.textContent = "Something went wrong checking delivery range. Please try again.";
+                radiusMessage.classList.add("blocked");
             });
         },
-        (error) => {
-            statusEl.textContent = "Unable to get your location. Please allow location access or select Pickup instead.";
+        () => {
+            radiusMessage.textContent = "Unable to get your location. Please allow location access or select Pickup instead.";
+            radiusMessage.classList.add("blocked");
         }
     );
 });
