@@ -88,22 +88,11 @@ def checkout():
     return render_template("checkout.html", items=items, order_total=order_total)
 
 
-@app.route("/checkout/confirm", methods=["POST"])
-def confirm_claim():
-    fulfillment_type = request.form.get("fulfillment_type")
-    address = request.form.get("address")
-    selected_time = request.form.get("time_window")
-    cart = get_cart()
-    # Placeholder: save the order to MongoDB here, using cart contents
-    save_cart({})  # clear cart after order is placed
-    return f"Order placed: {fulfillment_type}, time: {selected_time}"
-
-
 # ---------- CHECKOUT DELIVERY ----------
 
 
 # max radius for restuarat delivery
-DELIVERY_RADIU = 5
+DELIVERY_RADIUS_MILES = 5
 
 def haversine_distance(lat1, lon1, lat2, lon2):
     """Returns distance in miles between two lat/lon points."""
@@ -139,6 +128,40 @@ def check_radius():
  
     return jsonify({"allowed": allowed, "distance_miles": round(distance, 2)})
 
+# ---------- CHECKOUT CONFIRMATION ----------
+
+@app.route("/checkout/confirm", methods=["POST"])
+def confirm_claim():
+    fulfillment_type = request.form.get("fulfillment_type")
+    address = request.form.get("address")
+    selected_time = request.form.get("time_window")
+    cart = get_cart()
+
+    if not cart:
+        return redirect(url_for("marketplace"))
+
+    # Placeholder: pull real item docs + restaurant info from MongoDB using cart contents
+    # item_ids = [ObjectId(i) for i in cart.keys()]
+    # items = list(db.food_items.find({"_id": {"$in": item_ids}}))
+    # restaurant = db.restaurants.find_one({"_id": items[0]["restaurant_id"]})
+    items = []
+    order_total = 0
+    restaurant_name = "Sample Restaurant"
+    restaurant_location = "123 Main St, Denver, CO"
+
+    # Placeholder: save the order to MongoDB here, using cart contents
+    save_cart({})  # clear cart after order is placed
+
+    return render_template(
+        "confirmation.html",
+        fulfillment_type=fulfillment_type,
+        address=address,
+        selected_time=selected_time,
+        items=items,
+        order_total=order_total,
+        restaurant_name=restaurant_name,
+        restaurant_location=restaurant_location,
+    )
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)

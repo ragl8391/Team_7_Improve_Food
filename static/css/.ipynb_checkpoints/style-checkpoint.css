@@ -10,6 +10,15 @@ body {
     padding: 16px 24px;
     background: #fff;
     border-bottom: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-link {
+    text-decoration: none;
+    color: #1d9e75;
+    font-weight: 600;
+    font-size: 15px;
 }
 .logo { font-weight: 600; font-size: 18px; color: #1d9e75; text-decoration: none; }
 
@@ -135,5 +144,5 @@ body {
 }
 
 .cart-empty {
-    margin-bottom: 1-rem;
+    margin-bottom: 1rem;
 }
