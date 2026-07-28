@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Order Confirmed - Improve Food{% endblock %}
+{% block content %}
+<div class="confirmation-page">
+    <h1>Order Confirmed!</h1>
+
+    {% if fulfillment_type == "pickup" %}
+        <p class="confirmation-type">You selected <strong>Pickup</strong>.</p>
+    {% else %}
+        <p class="confirmation-type">You selected <strong>Delivery</strong>.</p>
+        {% if address %}
+        <p class="confirmation-address">Delivering to: {{ address }}</p>
+        {% endif %}
+    {% endif %}
+
+    <div class="confirmation-restaurant">
+        <h2>{{ restaurant_name }}</h2>
+        <p>{{ restaurant_location }}</p>
+    </div>
+
+    <div class="confirmation-items">
+        <h3>Order Items</h3>
+        {% if items %}
+            {% for item in items %}
+            <div class="confirmation-item">
+                <span>{{ item.name }}</span>
+                <span>${{ "%.2f"|format(item.price) }}</span>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>Order details will appear here once items are loaded.</p>
+        {% endif %}
+        <p class="confirmation-total">Total: ${{ "%.2f"|format(order_total) }}</p>
+    </div>
+
+    <div class="confirmation-time">
+        <h3>{{ "Pickup" if fulfillment_type == "pickup" else "Delivery" }} Time</h3>
+        <p>{{ selected_time }}</p>
+    </div>
+
+    <a href="{{ url_for('marketplace') }}" class="btn-primary">Back to Marketplace</a>
+</div>
+{% endblock %}
