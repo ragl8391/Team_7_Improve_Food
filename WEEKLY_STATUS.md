@@ -402,28 +402,28 @@ The primary goal of this week's meeting was to organize files on the main branch
 
 
 ### Mitigation:
-- 
+- Lauren will merge her files to the main branch first, then Rachael will mere her files after and resolve any merge conflicts.
 
 
 ### Identified Risk:
 - Aligning the API with the frontend files
 
 ### Mitigation:
-- 
+- Push all frontend files to the main branch and then follow up directly with Elysha.
 
 ---
 
 ## Team Reflection
-
+The team is feeling good about the progress so far, and is preparing for next week's demo.
 
 ---
 
 ## Individual Contributions
 ### Elysha:
-- 
+- Developed flow for location coordinates to be processed in the backend
 
 ### Lauren:
-- 
+- Modified consumer frontend pages
 
 ### Rachael:
 - Created HTML page for adding restaurant location
@@ -432,4 +432,4 @@ The primary goal of this week's meeting was to organize files on the main branch
 - Updated ClickUp
 
 ### Marshal:
-- 
+- Worked on MongoDB
