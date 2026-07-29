@@ -10,6 +10,15 @@ body {
     padding: 16px 24px;
     background: #fff;
     border-bottom: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-link {
+    text-decoration: none;
+    color: #1d9e75;
+    font-weight: 600;
+    font-size: 15px;
 }
 .logo { font-weight: 600; font-size: 18px; color: #1d9e75; text-decoration: none; }
 
@@ -54,7 +63,7 @@ body {
 .btn-primary:hover {
     background: #17815f
 }
-
+    
 .btn-secondary {
     display: inline-block;
     background: #eee;
@@ -74,6 +83,8 @@ body {
     display: inline-block;
     margin-top: 30px;
     margin-left: 12px;
+}
+
 }
 
 .feed-grid {
@@ -157,4 +168,8 @@ body {
 .landing-art {
     font-size: 120px;
     color: #f2a623;
+}
+
+.cart-empty {
+    margin-bottom: 1rem;
 }
