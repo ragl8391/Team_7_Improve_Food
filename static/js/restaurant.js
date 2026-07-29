@@ -1,34 +1,44 @@
 // Restaurant Location Elements
-const VerifyBtn = document.getElementById("verify-btn");
-const AddressInput = document.getElementById("restaurant_address");
-const MapDisplay = document.getElementById("map-display");
+const button = document.getElementById("share-location");
+const status = document.getElementById("status");
 
 // Listen for button click to verify address
-VerifyBtn.addEventListener("click", verifyAddress);
-
-function verifyAddress() {
-    const address = AddressInput.value.trim();
-
-    if (address == "") {
-        alert("Please enter an address.");
+button.addEventListener("click", () => {
+    if (!navigator.geolocation) {
+        status.textContent= "Geolocation not operating properly. Please try a different browser.";
         return;
     }
 
-    // Test verification
-    MapDisplay.innerHTML = `<p>Verifying: ${address}</p>`;
+    status.textContent = "Retrieving location";
 
-    // Encode verified address
-    const EncodedAddress = encodeURIComponent(address);
+    navigator.geolocation.getCurrentPosition(
+        // Find location
+        async (position) => {
+            const latitude = position.coords.latitude;
+            const latitude = position.coords.latitude;
 
-    // Display address using Google Maps
-    MapDisplay.innerHTML = `
-    <iframe
-        width="100%"
-        height="300"
-        style="border:0;"
-        loading="lazy"
-        src="https://www.google.com/maps?q=${EncodedAddress}&output=embed">
-    </iframe>
-    `;
-}
+            status.textContent = "Location confirmed!"
+
+            // Send location to backend
+            const response = await fetch ("/location", {
+                method: "POST",
+                headers: {
+                    "Content Type": "application/json"
+                },
+                body: JSON.stringify({
+                    latitude,
+                    longitude
+                })
+            });
+
+            const result = await response.json();
+            console.log(result);
+        },
+        (error) => {
+            status.textContent = "Cannot retrieve location.";
+            console.error(error);
+        }
+    );
+});
+                
     
