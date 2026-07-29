@@ -1,23 +1,11 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Restaurant: Add Food</title>
-      <!-- Link to CSS -->
-      <link rel="stylesheet" href="../static/css/style.css">
-  </head>
- 
-<body>
-    <header class="site-header">
-        <a href="index.html" class="Logo">Food Rescue</a>
-    </header>
-    <main class="content">
+{% extends "base.html" %}
+{% block title %}Restaurant: Add Food{% endblock %}
+{% block content %}
         <section class="auth-card">
             <h1>Restaurants: Add Your Food Here</h1>
 
 
-            <form class="auth-form" action="/add-item" method="POST">
+            <form class="auth-form" action="{{ url_for('add-item') }}" method="POST">
                 <!-- Add restaurant's name -->
                 <label for="restaurant_name">Restaurant Name</label>
                 <input id="restaurant_name" type="text" name="restaurant_name" required>
@@ -53,13 +41,14 @@
                 <button class="btn-primary" type="submit">Submit</button>
 
 <!-- Link to location page -->
-<a class="btn-secondary location-link" href="restaurant_location.html">Next: Restaurant Location and Pickup/Delivery Options</a>
+<a class="btn-secondary location-link" href="{{ url_for('restaurant_location') }}">Next: Restaurant Location and Pickup/Delivery Options</a>
 
 <!-- TODO: Add fun image to right of form -->
             </form>
         </section>
-    </main>
-    <!-- Link to Javascript -->
-    <script src="../static/js/restaurant.js"></script>
-  </body>
-</html>
+{% endblock %}
+
+  <!-- Link to Javascript -->
+{% block scripts %}
+  <script src="{{ url_for('static', filename='js/restaurant.js') }}"></script>
+{% endblock %}
