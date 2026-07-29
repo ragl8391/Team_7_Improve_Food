@@ -10,6 +10,15 @@ body {
     padding: 16px 24px;
     background: #fff;
     border-bottom: 1px solid #e2e2e2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cart-link {
+    text-decoration: none;
+    color: #1d9e75;
+    font-weight: 600;
+    font-size: 15px;
 }
 .logo { font-weight: 600; font-size: 18px; color: #1d9e75; text-decoration: none; }
 
@@ -30,6 +39,14 @@ body {
     border-radius: 8px;
     font-size: 15px;
 }
+
+.auth-form select{
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
 .auth-alt { margin-top: 16px; font-size: 14px; }
 
 .btn-primary {
@@ -42,13 +59,32 @@ body {
     cursor: pointer;
     margin-top: 16px;
 }
+
+.btn-primary:hover {
+    background: #17815f
+}
+    
 .btn-secondary {
+    display: inline-block;
     background: #eee;
     color: #333;
     border: none;
     padding: 12px 20px;
     border-radius: 8px;
+    text-decoration: none;
     cursor: pointer;
+}
+
+.btn-secondary:hover {
+    background: #e0e0e0
+}
+
+.location-link {
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 12px;
+}
+
 }
 
 .feed-grid {
@@ -132,4 +168,8 @@ body {
 .landing-art {
     font-size: 120px;
     color: #f2a623;
+}
+
+.cart-empty {
+    margin-bottom: 1rem;
 }

@@ -5,16 +5,20 @@
 ### Page Description
 This is the home page for our website. It will provide a brief description of the services Improve Food provides, as well as two buttons the user can choose to click. One button is intended for consumers who would like to find and order food. The other button is for restaurants who would like to add food to be ordered by others.
 
-#### For mockup, see Improve Food Web Design PDF: Landing Page
+#### For mockup, see [Improve Food Web Design PDF: Landing Page](<Improve Food Web Design.pdf>)
 
 ### Parameters needed for the page
-This page needs parameters such as HTML attributes, including the <a></a> tag to include hyperlinks that users can select to be guided to the consumer or restaurant page, as well the <src ... alt=""> tag to include an image of food on the home page.
+This page needs parameters such as HTML attributes, including the `<a></a>` tag to include hyperlinks that users can select to be guided to the consumer or restaurant page, as well the `<img src="" ... alt="">` tag to include an image of food on the home page.
 
 ### Data needed to render the page
 An HTML document will be needed to include all of the test on the home page, as well as the hyperlinks and image. There should be a Cascading Style Sheet (CSS) which then styles the information text and hyperlinks, include font type and size, how text is centered, as well as the background color of the page.
 
 ### Link destinations for the page
-The desintations of the page can be found from the frontend component of the repository.
+The desintations of the pages will be found from the frontend component of the repository.
+
+Restaurant button/link -> Restaurant Add Food page
+
+Consumer button/link -> Consumer Choose Food page
 
 #### Landing Page HTML Document
 *landing.html*
@@ -29,63 +33,70 @@ The desintations of the page can be found from the frontend component of the rep
 *<a href="consumer_choose_food.html"Consumer - Choose Food Page</ a>*
 
 ### List of tests for verifying the rendering of the page
-- Test that home page displays text and images
-- Test that page is formatting according to CSS styling preferences
-- Test that link to restaurant page is clickable and sends user to correct page
-- Test that link to consumer page is clickable and sends user to correct page
+- The home page displays text and images which render properly
+- The page is formatted according to CSS styling preferences
+- The link to restaurant page is clickable and sends user to correct page
+- The link to consumer page is clickable and sends user to correct page
 
 ## Page 2: Restaurant - Add Food
 
 ### Page Description
 This page is where restaurants can log the food that they have available to sell. They categorize their food by type and subtype, then add its name and description. Additionally, the price and quantity available for each food item can be added. The restaurant also inputs its restaurant name at the top of the form.
 
-#### For mockup, see Improve Food Web Design PDF: Restaurant - Add Food
+#### For mockup, see [Improve Food Web Design PDF: Restaurant - Add Food](<Improve Food Web Design.pdf>)
 
 ### Parameters needed for the page
-This page needs parameters such as HTML attributes, including the `<a>``</a>` tag to include a hyperlink that users can select to be guided to the Restaurant Location, Delivery/Pickup Options page, as well the `<src ... alt="">` tag to include an image of more food on the page.
+This page needs parameters such as HTML attributes, including the `<a></a>` tag to include a hyperlink that users can select to be guided to the Restaurant Location, Delivery/Pickup Options page, as well the `<img src="" ... alt="">` tag to include an image of more food on the page.
 
-There will need to be an HTML form for the user to input information regarding food type, subtype, name, description, quantity, and price as well as the restaurant name.
+There will need to be an HTML form for the user to input information regarding food type, subtype, name, description, quantity, and price as well as the restaurant name. It is important to note that the data should be dynamically generated because food availablility will change based on what the consumer orders.
 
 ### Data needed to render the page
-An HTML document will be needed in order to include the text and images, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded.
+An HTML document will be needed in order to include the text and images, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded. Since the food quantities decrease as consumers purchase them, this page will also need a connection to the food/product database (via Flask route/API) in order to pull current restaurant name, food item, and quantity for each item. Additionally, some JavaScript may be needed in order to render the data into the page and to record which items a consumer has purchased, to remove them from the database for future purchases that day.
 
 ### Link destinations for the page
+Clicking a submit button -> adds food to database
+
+Location button/link -> sends user to restaurant location page
 
 #### Restaurant - Add Food Page
 *restaurant_add_food.html*
 
-#### Restaurant - Add Foof HTML Form
+#### Restaurant - Add Food HTML Form
 *restaurant_add_food_form.html*
 
 #### Restaurant - Add Location, Pickup/Delivery Options Page
 *<a href="restaurant_add_location.html"Restaurant - Add Location Page</ a>*
 
 ### List of tests for verifying the rendering of the page
-- Test that all expected text and images appear on the page
-- Test that page is styled as expected
-- Test that restaurant name can be input (string)
-- Test that food category can be selected from set of options (drop-down menu)
-- Test that food subcategory can be selected from set of options (drop-down menu)
-- Test that food name can be added (string)
-- Test that food description can be added (string)
-- Test that food quantity can be added (integer)
-- Test that price can be added (float with two decimal places)
-- Test that form can be submitted
-- Test that hyperlink to Restaurant Location, Delivery/Pickup Options page sends user to correct web page
+- All expected text and images appear on the page and render properly
+- The page is styled as expected
+- User can input restaurant name (string)
+- Food category can be selected from set of options (drop-down menu)
+- Food subcategory can be selected from set of options (drop-down menu)
+- Food name can be input by user (string)
+- Food description can be input by user (string)
+- Food quantity can be input by user (integer)
+- Price can be input by user (float with two decimal places)
+- The form can be submitted
+- The hyperlink to Restaurant Location, Delivery/Pickup Options page sends user to correct web page
 
 ## Page 3: Restaurant - Add Location, Pickup/Delivery Options
 ### Page Description
-This page is where restaurants can log the food that they have available to sell. They categorize their food by type and subtype, then add its name and description. Additionally, the price and quantity available for each food item can be added. The restaurant also inputs its restaurant name at the top of the form.
+This page is where the restaurant can input its location, and select if it would like to offer a delivery option. Additionally, the restaurant reports when it closes that day to help coordinate orders during open hours.
 
-#### For mockup, see Improve Food Web Design PDF: Restaurant - Add Food
+#### For mockup, see [Improve Food Web Design PDF: Restaurant - Add Location, Pickup/Delivery Options](<Improve Food Web Design.pdf>)
 
 ### Parameters needed for the page
-This page needs parameters such as HTML attributes, including the `<a>` `</a>` tag to include a hyperlink that users can select to be guided to the Restaurant Location, Delivery/Pickup Options page, as well the `<src ... alt="">` tag to include an image of more food on the page.
+This page needs parameters such as HTML attributes, including the `<iframe></iframe>` tag which displays a map on the page with an address that the user inputs, as well an HTML form for the user to input information regarding restaurant location and closing time.
 
 ### Data needed to render the page
-An HTML document will be needed in order to include the text and map, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded regarding location, delivery options, and closing time.
+An HTML document will be needed in order to include the text and map, a CSS document will be needed to style the page, and an HTML form will be needed in order to allow for user input to be available and recorded regarding location, delivery options, and closing time. This page will need a connection to the food data (the restaurant's food item and quantity) carried over from the Add Food page, as well as a connection to the consumer database to pull each consumer's name and location who has ordered from a restaurant. A connection to a pickup/delivery time database or schedule (via Flask route/API) will be needed to populate the list of available time windows to deliver to consumers or for consumers to pick up their items. JavaScript will be needed to conditionally render either the pickup flow or the delivery flow based on the restaurant's delivery preference and the customer's selection, as well as to validate and store the restaurant address entered.
 
 ### Link destinations for the page
+Submit button -> submits data regarding restaurant address, closing time, and delivery option
+
+Add more food button (optional) -> restaurant can select to go back to the Add Food page for additional items
+
 *restaurant_add_location.html*
 
 ### List of tests for verifying the rendering of the page
@@ -101,7 +112,7 @@ An HTML document will be needed in order to include the text and map, a CSS docu
 ### Page Description
 This page enables consumers to browse and select current food offerings. It will update available food based on restuarant input and display details including restaurant name, and food type, subtype, name, description, price, and quantity. Consumers can scroll through the current offerrings and select items to add to their cart. 
 
-#### For mockup, see Improve Food Web Design PDF
+#### For mockup, see [Improve Food Web Design PDF: Consumer - Choose Food](<Improve Food Web Design.pdf>)
 
 ### Parameters needed for the page
 
@@ -115,7 +126,7 @@ An HTML document will be needed in order to include the text, images, and links,
 
 ### Link destinations for the page
 
-Clicking an item/select button -> adds item to cart (updates car data)
+Clicking an item/select button -> adds item to cart (updates cart data)
 
 Cart icon/link -> Cart/Checkout page
 
@@ -142,7 +153,7 @@ If pickup is selected, the customer will be directed to a confirmation page that
 
 If delivery is selected, the customer will be prompted to enter their address. A confirmation page will display with the order items, item total, restaurant name, and restaurant location. A list of possible delivery times will display and the customer will select their desired pickup window. 
 
-#### For mockup, see Improve Food Web Design PDF
+#### For mockup, see [Improve Food Web Design PDF: Consumer - Pickup/Delivery](<Improve Food Web Design.pdf>)
 
 ### Parameters needed for the page
 This page needs parameters such as HTML attributes, including `<button>` elements for the user to select either "Pickup" or "Delivery." A `<form>` will be needed to collect the customer's address if "Delivery" is selected, with `<input type="text">` fields for street address, city, state, and zip. A `<select>` (dropdown) or radio button group (`<input type="radio">`) will be needed to display and let the customer choose from the list of available pickup or delivery time windows. An `<a href="...">` tag or '`button>` will be needed to allow the customer to proceed from the time-selection screen to order confirmation, and `<a href="...">` tags will also be needed to link the restaurant name/location to that Restaurant's Location page.
@@ -162,7 +173,7 @@ Confirm time selection -> Order confirmation/Receipt page
 ### List of tests for verifying the rendering of the page
 - Page loads and correctly displays the current order items and item total
 
-- "Pickup" and "Deliery" buttons render and are clickable
+- "Pickup" and "Delivery" buttons render and are clickable
 
 - Selecting "Pickup" correctly navigates to the pickup confirmation screen with order items, item total, restaurant name, and restuarant location
 
