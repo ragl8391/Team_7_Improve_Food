@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Add Restaurant Location and Opt In/Out to Offer Delivery</title>
       <!-- Link to CSS -->
-      <link rel="stylesheet" href="restaurant_style.css">
+      <link rel="stylesheet" href="../static/css/style.css">
   </head>
  
 <body>
@@ -13,21 +13,10 @@
         <a href="index.html" class="Logo">Food Rescue</a>
     </header>
     <main class="content">
-        <section class="auth-card">
-            <h1>Restaurants: Add Your Location Here</h1>
-
-
-            <form class="auth-form" action="/resaurant-location" method="POST">
-                <!-- Add restaurant's street address -->
-                <label for="restaurant_address">Restaurant Address</label>
-                <input id="restaurant_address" type="text" name="restaurant_address" placeholder="123 Example Street, Denver CO 80205" required>
-
-                <button id="verify-btn" class="btn-primary" type="button">Verify Address</button>
-
-                <!-- Add restaurant's city -->
-                <div id="map-display">
-                    <!-- Verified map to be displayed here -->
-                </div>
+        <section class="auth-form">
+            <h1>Restaurants: Location and Delivery</h1>
+            <button id="share-location" class="btn-primary">Use My Location</button>
+            <p id="status"></p>
 
         <!-- Opt in or out of delivery -->
         <label for="category">Would you like to offer delivery within a 5-mile radius?</label>
@@ -44,6 +33,6 @@
         </section>
     </main>
     <!-- Link to Javascript -->
-    <script src="restaurant.js"></script>
+    <script src="../static/js/restaurant.js"></script>
   </body>
 </html>
