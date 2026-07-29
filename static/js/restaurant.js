@@ -15,7 +15,7 @@ button.addEventListener("click", () => {
         // Find location
         async (position) => {
             const latitude = position.coords.latitude;
-            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
 
             status.textContent = "Location confirmed!"
 
@@ -23,7 +23,7 @@ button.addEventListener("click", () => {
             const response = await fetch ("/location", {
                 method: "POST",
                 headers: {
-                    "Content Type": "application/json"
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
                     latitude,
