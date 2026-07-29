@@ -13,9 +13,15 @@
         <a href="index.html" class="Logo">Food Rescue</a>
     </header>
     <main class="content">
-        <section class="auth-form">
+        <section class="auth-card">
+            <form class="auth-form">
             <h1>Restaurants: Location and Delivery</h1>
-            <button id="share-location" class="btn-primary">Use My Location</button>
+            <button 
+                id="share-location"
+                class="btn-primary"
+                type="button">
+                Use My Location
+            </button>
             <p id="status"></p>
 
         <!-- Opt in or out of delivery -->
@@ -25,6 +31,7 @@
                 <option value="no">NO, I would not like to deliver at this time.</option>
             </select>
             <button class="btn-primary" type="submit">Submit Address and Delivery Option</button>
+        </section>
         </form>
 <!-- Link to location page -->
 <a class="btn-secondary location-link" href="landing.html">Back to Home Page</a>
