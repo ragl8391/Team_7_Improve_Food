@@ -188,3 +188,248 @@ Overall the team feels like the project is running smoothly, and that the risks 
 ### Marshal:
 - Pushed 'backend_api.pu' to git
 - The Backend API and MongoDB are running successfully
+
+- ## Reporting Period
+**Week:** 9 \
+**Meeting Held:** Yes \
+**Meeting Date:** July 17, 4:30pm \
+**Meeting Duration:** 30 minutes \
+**Meeting Format:** Zoom
+
+## Project Management Snapshot
+<img width="947" height="470" alt="WeeklyProgress" src="https://github.com/user-attachments/assets/a5c955cb-efa4-4545-8dd9-308c844f900f" />
+
+
+
+
+The team is using a shared **ClickUp** to manage tasks and sprint progress.
+At the time of this report:
+- Milestone 5 (SQL) is submitted
+- Progress being made on frontend code
+
+---
+
+## Progress Since Last Week
+
+### Overview
+
+### Key Accomplishments
+- Milestone 5 submitted!
+
+---
+
+## Planned Tasks for Next Week
+- Contiuous work on organizing backend
+- Frontend - continue with HTML, CSS, and Java files
+- Upcoming - Milestone 6 (individual interviews)
+
+
+---
+
+## Blockers and Issues
+
+
+---
+
+## Risks and Mitigation
+
+### Identified Risk:
+- Connecting frontend and backend work across multiple branches
+
+### Mitigation:
+- Once files are mostly complete, team will coordinate a time to push to the main branch and resolve merge conflicts together
+
+---
+
+## Team Reflection
+Overall the team is happy with progress and communication.
+
+---
+
+## Individual Contributions
+### Elysha:
+- Completed Milestone 5 and pushed to main branch
+
+### Lauren:
+- Created HTML and CSS files for consumer frontend pages
+
+### Rachael:
+- Updated Clickup and planned upcoming assignments
+- Scheduled individual interview
+- Created HTML file for restaurant's add food page
+
+### Marshal:
+- Worked on backend MongoDB
+
+- ## Reporting Period
+**Week:** 10 \
+**Meeting Held:** Yes \
+**Meeting Date:** July 24, 4:30pm \
+**Meeting Duration:** 30 minutes \
+**Meeting Format:** Zoom
+
+## Project Management Snapshot
+<img width="1009" height="593" alt="Improve_Food" src="https://github.com/user-attachments/assets/d22842c4-d9f6-446c-86be-34b668341c4a" />
+
+
+
+
+
+The team is using a shared **ClickUp** to manage tasks and sprint progress.
+At the time of this report:
+- Team members have planned their Milestone 6 interviews
+
+---
+
+## Progress Since Last Week
+
+### Overview
+Team continues to make progress on individual project responsibilities. Backend implementation is in the testing phase. Frontend implementation is in the final stages of styling and implementation. Plan to merge all changes into main branch and link frontend and backend components. 
+
+### Key Accomplishments
+- Decided on final styling for customer and restaurant facing pages 
+- Planned individual branch merging into main branch
+- Planned frontend and backend connection for full app implementation
+
+---
+
+## Planned Tasks for Next Week
+- Continue working final project presentation slides
+- Backend testing
+- HTML styling for restuarant location page
+- Javascript implementation for restaurant pages
+- Meeting to review individual branch merging into main
+- Meeting to review frontend and backend integration
+
+
+---
+
+## Blockers and Issues
+- Linking frontend and backend
+- Making changes to shared css file
+
+---
+
+## Risks and Mitigation
+
+### Identified Risk:
+ - Improper linkages may cause improper storage of restaurant inputs, incorrect displays to consumers, and/or failure to update when food items are changed.
+   
+
+
+### Mitigation:
+- Team setup a separate meeting to link frontend and backend together with screen sharing to ensure all implemented changes are correct
+
+
+### Identified Risk:
+Changes in the css file may be overriden by a single merge, unintentionally deletion another members work. 
+
+### Mitigation:
+- Team setup a separate time to merge css file so changes can be reviewed together 
+
+---
+
+## Team Reflection
+Team feels organized and that all members are fairly contributing to progress. Looking forward to final implementation and app testing. 
+
+---
+
+## Individual Contributions
+### Elysha:
+- MongoDB
+- Created slide template for final presentations 
+
+### Lauren:
+- Updated cart logic to be based on customer session
+- Updated styling for customer frontend
+- Final customer frontend testing 
+
+### Rachael:
+- Updated styling on restaurant add food page
+- Planning HTML page for restaurant location
+
+### Marshal:
+- 
+
+- ## Reporting Period
+**Week:** 11 \
+**Meeting Held:** Yes \
+**Meeting Date:** July 27, 4:30pm \
+**Meeting Duration:** 30 minutes \
+**Meeting Format:** Zoom
+
+## Project Management Snapshot
+<img width="1092" height="528" alt="Week11" src="https://github.com/user-attachments/assets/9ec99c1f-398b-45eb-b172-e54670fc922f" />
+
+
+
+
+
+
+The team is using a shared **ClickUp** to manage tasks and sprint progress.
+At the time of this report:
+- Team members have drafted files to be organized in the main branch
+
+---
+
+## Progress Since Last Week
+
+### Overview
+The primary goal of this week's meeting was to organize files on the main branch and resolve merge conflicts. Additionally, details connecting the frontend to the API were discussed.
+
+### Key Accomplishments
+- Drafts of frontend and backend files mostly completed
+
+---
+
+## Planned Tasks for Next Week
+- Milestone 7 due Thursday, August 6
+- Complete project slides
+- Record demo
+
+
+---
+
+## Blockers and Issues
+- There is a limited amount of time before Milestone 7, so coordinating across all team members' schedules will be important.
+
+---
+
+## Risks and Mitigation
+
+### Identified Risk:
+ - Organizing frontend files in an easy to understand manner without causing pathing issues.
+
+
+### Mitigation:
+- Lauren will merge her files to the main branch first, then Rachael will mere her files after and resolve any merge conflicts.
+
+
+### Identified Risk:
+- Aligning the API with the frontend files
+
+### Mitigation:
+- Push all frontend files to the main branch and then follow up directly with Elysha.
+
+---
+
+## Team Reflection
+The team is feeling good about the progress so far, and is preparing for next week's demo.
+
+---
+
+## Individual Contributions
+### Elysha:
+- Developed flow for location coordinates to be processed in the backend
+
+### Lauren:
+- Modified consumer frontend pages
+
+### Rachael:
+- Created HTML page for adding restaurant location
+- Create Javascript file to display location fron Google Maps
+- Began slideshow for Milestone 7
+- Updated ClickUp
+
+### Marshal:
+- Worked on MongoDB
