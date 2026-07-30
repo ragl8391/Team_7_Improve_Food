@@ -30,7 +30,9 @@
         {% else %}
             <p>Order details will appear here once items are loaded.</p>
         {% endif %}
-        <p class="confirmation-total">Total: ${{ "%.2f"|format(order_total) }}</p>
+        <p class="confirmation-total">
+    Total: ${{ "%.2f"|format(order_total|default(0.00)) }}
+</p>
     </div>
 
     <div class="confirmation-time">

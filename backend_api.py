@@ -2,7 +2,7 @@ import math
 import os
 import certifi
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from bson import ObjectId
 from dotenv import load_dotenv
 from pymongo import MongoClient
@@ -48,10 +48,35 @@ def calculate_distance(restaurant_coord, user_coord):
 def home():
     try:
         client.admin.command("ping")
-        return "The Backend API and MongoDB are running successfully!"
+        return render_template("landing.html")
     except Exception as error:
         print("MongoDB error:", error)
         return f"MongoDB connection failed: {error}", 500
+
+@app.route("/marketplace")
+def marketplace():
+    return render_template("marketplace.html")
+
+@app.route("/add-food")
+def add_food():
+    return render_template("add_food.html")
+
+@app.route("/restaurant-location")
+def restaurant_location():
+    return render_template("restaurant_location.html")
+
+@app.route("/cart")
+def view_cart():
+    return render_template("cart.html")
+
+@app.route("/checkout")
+def checkout():
+    return render_template("checkout.html")
+
+@app.route("/confirmation")
+def confirmation():
+    return render_template("confirmation.html")
+
 
 # Returns one specific food item identified by its MongoDB ID.  
 @app.route("/api/items/<item_id>", methods=["GET"])
