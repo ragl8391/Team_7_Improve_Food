@@ -108,11 +108,15 @@ def retrieve_items():
 
     except Exception as error:
         return jsonify(error=str(error)), 500
-    
+
 @app.route("/add-item", methods=["POST"])
 def add_item():
     item_name = request.form.get("item_name")
     restaurant_name = request.form.get("restaurant_name")
+    email = request.form.get("email")
+    category = request.form.get("category")
+    description = request.form.get("food_description")
+    price = request.form.get("price")
     quantity = request.form.get("quantity")
     expires_at = (
         request.form.get("expires_at")
@@ -130,7 +134,11 @@ def add_item():
     item_data = {
         "name": item_name,
         "restaurant_name": restaurant_name,
+        "email": email,
+        "category": category,
+        "description": description,
         "quantity": quantity,
+        "price": price,
         "expires_at": expires_at,
         "status": "available",
         "delivery_available": True

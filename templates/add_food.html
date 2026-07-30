@@ -5,7 +5,7 @@
             <h1>Restaurants: Add Your Food Here</h1>
 
 
-            <form class="auth-form" action="{{ url_for('add-item') }}" method="POST">
+            <form class="auth-form" action="{{ url_for('add_item') }}" method="POST">
                 <!-- Add restaurant's name -->
                 <label for="restaurant_name">Restaurant Name</label>
                 <input id="restaurant_name" type="text" name="restaurant_name" required>
@@ -25,9 +25,13 @@
                 <option value="Fast_Food">Fast Food</option>
                 <option value="Other">Other</option>
                 </select>
+
+            <!-- Expire Time --->
+                <label for="expires_at">Expiration Time</label>
+                <input type="datetime-local" name="expires_at" required>
             
                 <!-- Add food name -->
-                <input type="text" name="food" placeholder="Food Name" required>
+                <input type="text" name="item_name" placeholder="Food Name" required>
             
                 <!-- Add food description -->
                 <input type="text" name="food_description" placeholder="Food Description" required>
