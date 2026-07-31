@@ -71,12 +71,120 @@ def view_cart():
 
 @app.route("/checkout")
 def checkout():
-    return render_template("checkout.html")
+    items = []
+    order_total = 0.00
+
+    return render_template(
+        "checkout.html",
+        items=items,
+        order_total=order_total
+    )
+
+
+@app.route("/confirm-claim", methods=["POST"])
+def confirm_claim():
+    fulfillment_type = request.form.get("fulfillment_type")
+    time_window = request.form.get("time_window")
+    address = request.form.get("address")
+
+    return render_template(
+        "confirmation.html",
+        order_total=0.00,
+        fulfillment_type=fulfillment_type,
+        time_window=time_window,
+        address=address
+    )
+
+
+@app.route("/check-radius", methods=["POST"])
+def check_radius():
+    data = request.get_json(silent=True) or {}
+
+    item_id = data.get("item_id")
+    user_lat = data.get("user_lat")
+    user_lon = data.get("user_lon")
+
+    if not item_id:
+        return jsonify(
+            allowed=False,
+            error="No item was selected."
+        ), 400
+
+    try:
+        mongo_item_id = ObjectId(item_id)
+        user_lat = float(user_lat)
+        user_lon = float(user_lon)
+    except (TypeError, ValueError):
+        return jsonify(
+            allowed=False,
+            error="Invalid item ID or coordinates."
+        ), 400
+
+    if not (-90 <= user_lat <= 90):
+        return jsonify(
+            allowed=False,
+            error="Latitude must be between -90 and 90."
+        ), 400
+
+    if not (-180 <= user_lon <= 180):
+        return jsonify(
+            allowed=False,
+            error="Longitude must be between -180 and 180."
+        ), 400
+
+    item = food_items_collection.find_one({
+        "_id": mongo_item_id
+    })
+
+    if item is None:
+        return jsonify(
+            allowed=False,
+            error="Item not found."
+        ), 404
+
+    restaurant_location = item.get("restaurant_location", {})
+    restaurant_lat = restaurant_location.get("lat")
+    restaurant_lon = restaurant_location.get("lon")
+
+    if restaurant_lat is None or restaurant_lon is None:
+        return jsonify(
+            allowed=False,
+            error="Restaurant location is unavailable."
+        ), 400
+
+    try:
+        restaurant_lat = float(restaurant_lat)
+        restaurant_lon = float(restaurant_lon)
+    except (TypeError, ValueError):
+        return jsonify(
+            allowed=False,
+            error="Restaurant coordinates are invalid."
+        ), 400
+
+    distance = calculate_distance(
+        (restaurant_lat, restaurant_lon),
+        (user_lat, user_lon)
+    )
+
+    delivery_available = item.get(
+        "delivery_available",
+        False
+    )
+
+    allowed = delivery_available and distance <= 5
+
+    return jsonify(
+        allowed=allowed,
+        distance_miles=round(distance, 2)
+    ), 200
+
 
 @app.route("/confirmation")
 def confirmation():
-    return render_template("confirmation.html")
-
+    return render_template(
+        "confirmation.html",
+        order_total=0.00
+    )
 
 # Returns one specific food item identified by its MongoDB ID.  
 @app.route("/api/items/<item_id>", methods=["GET"])
