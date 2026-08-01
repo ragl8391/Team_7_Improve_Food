@@ -25,6 +25,25 @@ def marketplace():
     food_items = []
     return render_template("marketplace.html", food_items=food_items)
 
+# ---------- RESTAURANT PAGES ----------
+
+@app.route("/restaurant/add-food", methods=["GET", "POST"])
+def add_food():
+    if request.method == "POST":
+        # Database/API integration will go here.
+        return redirect(url_for("restaurant_location"))
+
+    return render_template("add_food.html")
+
+
+@app.route("/restaurant/location", methods=["GET", "POST"])
+def restaurant_location():
+    if request.method == "POST":
+        # Database/API integration will go here.
+        return redirect(url_for("index"))
+
+    return render_template("restaurant_location.html")
+
 
 # ---------- CART LOGIC ----------
 
