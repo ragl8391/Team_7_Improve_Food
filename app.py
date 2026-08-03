@@ -4,6 +4,7 @@ from flask import Flask, render_template, redirect, url_for, request, jsonify, s
 from pymongo import MongoClient
 from dotenv import load_dotenv
 from werkzeug.middleware.proxy_fix import ProxyFix
+from bson import ObjectId
 
 load_dotenv()
 app = Flask(__name__)
@@ -50,7 +51,7 @@ def add_food():
 
         db["food_items"].insert_one(item_data)
 
-        return redirect(url_for("restaurant_location"))
+        return redirect("location")
 
     return render_template("add_food.html")
 
@@ -107,10 +108,51 @@ def update_cart_quantity(item_id):
 @app.route("/cart")
 def view_cart():
     cart = get_cart()
-    # Placeholder: real query + total calculation
+
+    if not cart:
+        return render_template(
+            "cart.html",
+            items=[],
+            order_total=0
+        )
+
+    object_ids = []
+
+    for item_id in cart.keys():
+        try:
+            object_ids.append(ObjectId(item_id))
+        except Exception:
+            continue
+
+    food_documents = list(
+        db["food_items"].find({
+            "_id": {"$in": object_ids}
+        })
+    )
+
     items = []
-    order_total = 0
-    return render_template("cart.html", items=items, order_total=order_total)
+    order_total = 0.0
+
+    for item in food_documents:
+        item_id = str(item["_id"])
+        cart_quantity = cart.get(item_id, 0)
+
+        try:
+            unit_price = float(item.get("price", 0))
+        except (TypeError, ValueError):
+            unit_price = 0.0
+
+        item["quantity"] = cart_quantity
+        item["price"] = unit_price
+
+        order_total += unit_price * cart_quantity
+        items.append(item)
+
+    return render_template(
+        "cart.html",
+        items=items,
+        order_total=order_total
+    )
 
 
 # ---------- CHECKOUT ----------
@@ -118,13 +160,47 @@ def view_cart():
 @app.route("/checkout")
 def checkout():
     cart = get_cart()
+
     if not cart:
         return redirect(url_for("marketplace"))
-    # Placeholder: real query + total calculation
-    items = []
-    order_total = 0
-    return render_template("checkout.html", items=items, order_total=order_total)
 
+    object_ids = []
+
+    for item_id in cart.keys():
+        try:
+            object_ids.append(ObjectId(item_id))
+        except Exception:
+            continue
+
+    food_documents = list(
+        db["food_items"].find({
+            "_id": {"$in": object_ids}
+        })
+    )
+
+    items = []
+    order_total = 0.0
+
+    for item in food_documents:
+        item_id = str(item["_id"])
+        cart_quantity = cart.get(item_id, 0)
+
+        try:
+            unit_price = float(item.get("price", 0))
+        except (TypeError, ValueError):
+            unit_price = 0.0
+
+        item["quantity"] = cart_quantity
+        item["price"] = unit_price
+
+        order_total += unit_price * cart_quantity
+        items.append(item)
+
+    return render_template(
+        "checkout.html",
+        items=items,
+        order_total=order_total
+    )
 
 # ---------- CHECKOUT DELIVERY ----------
 
@@ -146,25 +222,41 @@ def haversine_distance(lat1, lon1, lat2, lon2):
 
 @app.route("/check-radius", methods=["POST"])
 def check_radius():
-    data = request.get_json()
+    data = request.get_json(silent=True) or {}
+
     item_id = data.get("item_id")
     user_lat = data.get("user_lat")
     user_lon = data.get("user_lon")
- 
-    if not all([item_id, user_lat is not None, user_lon is not None]):
-        return jsonify({"error": "Missing required fields"}), 400
- 
-    # Placeholder: look up the item's restaurant, then the restaurant's coordinates
-    # item = db.food_items.find_one({"_id": ObjectId(item_id)})
-    # restaurant = db.restaurants.find_one({"_id": item["restaurant_id"]})
-    # restaurant_lat = restaurant["latitude"]
-    # restaurant_lon = restaurant["longitude"]
-    restaurant_lat, restaurant_lon = 39.7392, -104.9903  # placeholder coords (Denver)
- 
-    distance = haversine_distance(user_lat, user_lon, restaurant_lat, restaurant_lon)
+
+    if not item_id or user_lat is None or user_lon is None:
+        return jsonify(
+            error="Missing required fields"
+        ), 400
+
+    try:
+        user_lat = float(user_lat)
+        user_lon = float(user_lon)
+    except (TypeError, ValueError):
+        return jsonify(
+            error="Coordinates must be valid numbers"
+        ), 400
+
+    restaurant_lat = 39.7392
+    restaurant_lon = -104.9903
+
+    distance = haversine_distance(
+        user_lat,
+        user_lon,
+        restaurant_lat,
+        restaurant_lon
+    )
+
     allowed = distance <= DELIVERY_RADIUS_MILES
- 
-    return jsonify({"allowed": allowed, "distance_miles": round(distance, 2)})
+
+    return jsonify({
+        "allowed": allowed,
+        "distance_miles": round(distance, 2)
+    })
 
 # ---------- CHECKOUT CONFIRMATION ----------
 
@@ -178,17 +270,50 @@ def confirm_claim():
     if not cart:
         return redirect(url_for("marketplace"))
 
-    # Placeholder: pull real item docs + restaurant info from MongoDB using cart contents
-    # item_ids = [ObjectId(i) for i in cart.keys()]
-    # items = list(db.food_items.find({"_id": {"$in": item_ids}}))
-    # restaurant = db.restaurants.find_one({"_id": items[0]["restaurant_id"]})
-    items = []
-    order_total = 0
-    restaurant_name = "Sample Restaurant"
-    restaurant_location = "123 Main St, Denver, CO"
+    object_ids = []
 
-    # Placeholder: save the order to MongoDB here, using cart contents
-    save_cart({})  # clear cart after order is placed
+    for item_id in cart.keys():
+        try:
+            object_ids.append(ObjectId(item_id))
+        except Exception:
+            continue
+
+    food_documents = list(
+        db["food_items"].find({
+            "_id": {"$in": object_ids}
+        })
+    )
+
+    items = []
+    order_total = 0.0
+
+    for item in food_documents:
+        item_id = str(item["_id"])
+        cart_quantity = cart.get(item_id, 0)
+
+        try:
+            unit_price = float(item.get("price", 0))
+        except (TypeError, ValueError):
+            unit_price = 0.0
+
+        item["quantity"] = cart_quantity
+        item["price"] = unit_price
+
+        order_total += unit_price * cart_quantity
+        items.append(item)
+
+    if items:
+        restaurant_name = items[0].get(
+            "restaurant_name",
+            "Restaurant"
+        )
+    else:
+        restaurant_name = "Restaurant"
+
+    restaurant_location = address or "Pickup at restaurant"
+
+    # Clear cart only after we have built the confirmation data.
+    save_cart({})
 
     return render_template(
         "confirmation.html",
@@ -202,4 +327,4 @@ def confirm_claim():
     )
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080, debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

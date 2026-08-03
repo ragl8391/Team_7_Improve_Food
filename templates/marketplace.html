@@ -21,16 +21,32 @@
 document.querySelectorAll(".add-to-cart-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
         const itemId = btn.dataset.itemId;
-        fetch(`/cart/add/${itemId}`, { method: "POST" })
-            .then((res) => res.json())
+
+        const currentUrl = new URL(window.location.href);
+        const basePath = currentUrl.pathname.replace(/\/marketplace\/?$/, "");
+        const addUrl = `${basePath}/cart/add/${itemId}`;
+
+        fetch(addUrl, {
+            method: "POST"
+        })
+            .then((res) => {
+                if (!res.ok) {
+                    throw new Error(`HTTP ${res.status}`);
+                }
+
+                return res.json();
+            })
             .then((data) => {
                 if (data.success) {
                     btn.textContent = "Added ✓";
-                    setTimeout(() => { btn.textContent = "Add to Cart"; }, 1200);
-                    // Optionally update a cart count badge in the header here
+
+                    setTimeout(() => {
+                        btn.textContent = "Add to Cart";
+                    }, 1200);
                 }
             })
-            .catch(() => {
+            .catch((error) => {
+                console.error("Add-to-cart error:", error);
                 btn.textContent = "Error, try again";
             });
     });
