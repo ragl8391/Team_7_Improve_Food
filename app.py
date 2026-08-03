@@ -1,5 +1,6 @@
 import os
 import math
+import certifi
 from flask import Flask, render_template, redirect, url_for, request, jsonify, session
 from pymongo import MongoClient
 from dotenv import load_dotenv
@@ -11,7 +12,10 @@ app = Flask(__name__)
 app.wsgi_app = ProxyFix(app.wsgi_app, x_prefix=1)
 app.secret_key = os.getenv("SECRET_KEY", "dev-secret-change-me")  # to track user session
 
-client = MongoClient(os.getenv("MONGO_URI"))
+mongo_uri = os.getenv("MONGO_URI")
+
+client = MongoClient(mongo_uri, tlsCAFile=certifi.where(), serverSelectionTimeoutMS=5000)
+
 db = client["improve_food"]
 
 
@@ -330,4 +334,4 @@ def confirm_claim():
     )
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5001, debug=True)

@@ -55,8 +55,19 @@ def home():
 
 @app.route("/marketplace")
 def marketplace():
-    return render_template("marketplace.html")
+    try:
+        food_items = list(
+            food_items_collection.find({"status": "available"})
+        )
 
+        return render_template(
+            "marketplace.html",
+            food_items=food_items
+        )
+
+    except Exception as error:
+        print("Marketplace MongoDB error:", error)
+        return f"Marketplace failed: {error}", 500
 @app.route("/add-food")
 def add_food():
     return render_template("add_food.html")
