@@ -12,7 +12,7 @@
 
     <!-- Pickup flow -->
     <div id="pickup-section">
-        <form action="{{ url_for('confirm_claim') }}" method="post" class="auth-form">
+        <form method="post" class="auth-form">
             <input type="hidden" name="fulfillment_type" value="pickup">
             <label for="pickup_time">Pickup Time</label>
             <select id="pickup_time" name="time_window" required>
@@ -36,7 +36,7 @@
 <div id="delivery-modal-overlay" class="modal-overlay hidden">
     <div class="modal">
         <h2>Delivery Details</h2>
-        <form id="checkout-form" action="{{ url_for('confirm_claim') }}" method="post">
+        <form id="checkout-form" method="post">
             <input type="hidden" name="fulfillment_type" value="delivery">
             <input type="hidden" id="user_lat" name="user_lat">
             <input type="hidden" id="user_lon" name="user_lon">

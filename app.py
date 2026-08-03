@@ -157,8 +157,11 @@ def view_cart():
 
 # ---------- CHECKOUT ----------
 
-@app.route("/checkout")
+@app.route("/checkout", methods=["GET", "POST"])
 def checkout():
+    if request.method == "POST":
+        return confirm_claim()
+
     cart = get_cart()
 
     if not cart:
