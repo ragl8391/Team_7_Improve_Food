@@ -21,16 +21,35 @@ def index():
 
 @app.route("/marketplace")
 def marketplace():
-    # Placeholder: real query wire up
-    food_items = []
-    return render_template("marketplace.html", food_items=food_items)
+    food_items = list(
+        db["food_items"].find({"status": "available"})
+    )
+
+    return render_template(
+        "marketplace.html",
+        food_items=food_items
+    )
 
 # ---------- RESTAURANT PAGES ----------
 
 @app.route("/restaurant/add-food", methods=["GET", "POST"])
 def add_food():
     if request.method == "POST":
-        # Database/API integration will go here.
+        item_data = {
+            "name": request.form.get("item_name"),
+            "restaurant_name": request.form.get("restaurant_name"),
+            "email": request.form.get("email"),
+            "category": request.form.get("category"),
+            "description": request.form.get("food_description"),
+            "quantity": request.form.get("quantity"),
+            "price": request.form.get("price"),
+            "expires_at": request.form.get("expires_at"),
+            "status": "available",
+            "delivery_available": True
+        }
+
+        db["food_items"].insert_one(item_data)
+
         return redirect(url_for("restaurant_location"))
 
     return render_template("add_food.html")
