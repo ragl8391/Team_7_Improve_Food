@@ -351,7 +351,7 @@ Team feels organized and that all members are fairly contributing to progress. L
 ### Marshal:
 - 
 
-- ## Reporting Period
+## Reporting Period
 **Week:** 11 \
 **Meeting Held:** Yes \
 **Meeting Date:** July 27, 4:30pm \
@@ -433,3 +433,88 @@ The team is feeling good about the progress so far, and is preparing for next we
 
 ### Marshal:
 - Worked on MongoDB
+
+## Reporting Period
+**Week:** 12 \
+**Meeting Held:** Yes \
+**Meeting Date:** August 3, 4:30pm \
+**Meeting Duration:** 30 minutes \
+**Meeting Format:** Zoom
+
+## Project Management Snapshot
+<img width="837" height="532" alt="Week 12" src="https://github.com/user-attachments/assets/e64afda9-7c5a-4742-b576-96d4ac92ce54" />
+
+The team is using a shared **ClickUp** to manage tasks and sprint progress.
+At the time of this report:
+- Milestone 7 is complete, with slides submitted and the demo presentation recorded
+- The forms are able to successfully post and retrieve data to and from the database, but due to environmental changes the styling needs to be re-adjusted
+
+---
+
+## Progress Since Last Week
+
+### Overview
+The primary goal of this week's meeting was to record the demo presentation and to discuss final components of the project.
+
+### Key Accomplishments
+- Milestone 7 complete
+- Backend and frontend communicating for both restaurant and consumer pages
+
+---
+
+## Planned Tasks for Next Week
+- Milestone 8 (Final Report) due Thursday, August 13
+- Milestones 9 and 10 (Peer Evaluation and Team Participation) also due August 13
+- Fix errors in styling that occurred after backend updates
+
+
+---
+
+## Blockers and Issues
+- When the backend was fixed such that data could be posted and retrieved, the styling for the restaurant pages disappeared
+- Some of the links are not working properly in the Jupyter proxy, and Rachael is testing it in VS Code
+
+---
+
+## Risks and Mitigation
+
+### Identified Risk:
+ - Environment issues connecting to backend causing styling to disappear in restaurant pages
+
+
+### Mitigation:
+- Rachael will test code locally using VS Code and make changes to re-implement styling
+
+
+### Identified Risk:
+- Links not working in Jupyter proxy
+
+### Mitigation:
+- Try testing code using other sources aside from Jupyter notebook
+
+---
+
+## Team Reflection
+The team did not have any major concerns, ongoing debugging conversations have been occurring on Discord.
+
+---
+
+## Individual Contributions
+### Elysha:
+- Debugged backend issues that prevented the HTML forms from working properly on restaurant and consumer side
+- Recorded demo of product
+- Contributed to Milestone 7 slides
+
+### Lauren:
+- Pushed consumer frontend pages to main branch
+- Contributed to Milestone 7 slides
+
+### Rachael:
+- Pushed restaurant frontend pages to main branch in GitHub
+- Contributed slides for Milestone 7 and submitted on Canvas with video recording
+- Updated ClickUp and Week 12 documentation
+
+### Marshal:
+- Adjusted routing
+- Contributed to slides for Milestone 7
+
