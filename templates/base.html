@@ -3,18 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>{% block title %}Improve Food{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
+
 <body>
     <header class="site-header">
-        <a href="{{ url_for('marketplace') }}" class="logo">Improve Food</a>
-        <a href="{{ url_for('view_cart') }}" class="cart-link">Cart</a>
+        <a href="#" data-route="/marketplace" class="logo">
+            Improve Food
+        </a>
+
+        <a href="#" data-route="/cart" class="cart-link">
+            Cart
+        </a>
     </header>
+
     <main class="content">
         {% block content %}{% endblock %}
     </main>
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <script>
+        /*
+         * Preserve the Jupyter proxy prefix when navigating.
+         *
+         * Example:
+         * /user/elsm2558/proxy/5000/marketplace
+         *
+         * becomes appBase:
+         * /user/elsm2558/proxy/5000
+         */
+        const proxyMarker = "/proxy/5000";
+        const currentPath = window.location.pathname;
+        const proxyIndex = currentPath.indexOf(proxyMarker);
+
+        let appBase = "";
+
+        if (proxyIndex !== -1) {
+            appBase = currentPath.substring(
+                0,
+                proxyIndex + proxyMarker.length
+            );
+        }
+
+        document.querySelectorAll("[data-route]").forEach((link) => {
+            link.href = appBase + link.dataset.route;
+        });
+    </script>
+
+    <script src="static/js/main.js"></script>
+
     {% block scripts %}{% endblock %}
 </body>
 </html>
