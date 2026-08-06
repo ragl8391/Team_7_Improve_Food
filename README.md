@@ -54,7 +54,7 @@ Scrum with Shared/Rotating Scrum Master: allowing the group to agree on a differ
 5. Connect frontend to backend
 6. Test end-to-end workflow and refine 
 
-## Project Tracking Software link (Trello is most common)
+## Project Tracking Software link
 ClickUp - https://app.clickup.com/90141346834/v/l/2kydfk0j-354
 
 Github Repository
