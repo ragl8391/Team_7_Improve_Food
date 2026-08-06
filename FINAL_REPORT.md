@@ -13,7 +13,7 @@ Improve Food - Food Waste Reduction Platform
 
 ## Required Links
 
-- Project Tracker: https://app.clickup.com/90141346834/v/li/901417335570
+- Project Tracker: [https://app.clickup.com/90141346834/v/li/901417335570](https://sharing.clickup.com/90141346834/l/h/2kydfk0j-354/355f4a949085d88)
 - Version control repository: https://github.com/ragl8391/Team_7_Improve_Food
 - 5-minute customer demo video: https://drive.google.com/file/d/1sp8uWIaMaPNTN7sgrrrF7QkQx2U4Hdey/view?usp=sharing
 - Public deployment site:
